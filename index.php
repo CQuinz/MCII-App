@@ -35,10 +35,10 @@
 
 			<ul class="navbar-nav ">
 			  <li class="nav-item active">
-				<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 			  </li>
 			  <li class="nav-item ">
-				<a class="nav-link" href="articles.html">Articles</a>
+				<a class="nav-link" href="articles.php">Articles</a>
 			  </li>
 
 			  <li class="nav-item dropdown ">
@@ -57,11 +57,13 @@
 
     <!-- SECTION: HERO -->
     <section id="hero">
-    
+   	
     	<div class="container">
       		<div class="hero-text">
 				<h1 class="display-3">Welcome to MCII!</h1>
-				<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique. Find out <a href="#">more&raquo;</a></p>
+				<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. 
+				is this working???????
+				Use it as a starting point to create something more unique. Find out <a href="#">more&raquo;</a></p>
 				<button class="btn btn-primary btn-lg" href="#" role="button"><a> Login &raquo;</a></button>
 				<button class="btn btn-success btn-lg" href="#" role="button"><a> Sign up &raquo;</a></button>
 			</div>

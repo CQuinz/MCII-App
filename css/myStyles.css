@@ -1,24 +1,20 @@
+/*
 html,body{
 	height: 100%;
+	
 }
+*/
 
 #hero{
-	background-image: url(/images/color-road.jpg);
+	
+	background-image: url("../images/color-road.jpg");
 	background-size: cover;
-	height: 100%;
+	height: 500px;
+	
 }
 
-
-/*GRADIENT BG FOR HERO (OPTIONAL)*/
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff9191+0,d10003+34,af0000+57 */
-background: #ff9191; /* Old browsers */
-background: -moz-radial-gradient(center, ellipse cover, #ff9191 0%, #d10003 34%, #af0000 57%); /* FF3.6-15 */
-background: -webkit-radial-gradient(center, ellipse cover, #ff9191 0%,#d10003 34%,#af0000 57%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at center, #ff9191 0%,#d10003 34%,#af0000 57%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9191', endColorstr='#af0000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
 /*
-.jumbo-text{
+.hero-text{
 	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
