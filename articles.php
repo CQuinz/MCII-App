@@ -31,9 +31,9 @@
 		$query ="SELECT * FROM articles";
 		$show_all_articles= mysqli_query($db,$query);
 
-		while($show_all_articles){
+		while($row =mysqli_fetch_assoc($show_all_articles)){
 			
-			$row =mysqli_fetch_assoc($show_all_articles);
+			
 			echo $article_title = $row['article_title'];
 		}
 			
