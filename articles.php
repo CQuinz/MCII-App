@@ -22,13 +22,19 @@
       	<div class="col-md-8">
       	
       	<?php 
+		/*QUERY THE DATABASE 
+			Create the query
+			Connect the query to the database
+			Loop through the results
+			Display the results
+		*/
 		$query ="SELECT * FROM articles";
 		$show_all_articles= mysqli_query($db,$query);
 
-		if($show_all_articles){
-			echo "query sucessful";
-		}else{
-			echo "query UNsucessful";
+		while($show_all_articles){
+			
+			$row =mysqli_fetch_assoc($show_all_articles);
+			echo $article_title = $row['article_title'];
 		}
 			
 			
