@@ -33,18 +33,21 @@
 
 		while($row =mysqli_fetch_assoc($show_all_articles)){
 			
-			
-			echo $article_title = $row['article_title'];
-		}
-			
+			//Creating variables for the array
+			$article_title = $row['article_title'];
+			$article_author = $row['article_author'];
+			$article_date = $row['article_date'];
+			$article_body = $row['article_body'];
 			
 		?>
-      		<h3>What is MCII?</h3>
-      		<h4>John Doe <span class="">Date</span></h4>
-      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quod obcaecati ea libero ipsam, fugiat id. Deserunt sint saepe nihil fugit tenetur nemo, tempora, sequi, modi cum esse harum iusto.</p>
+      		<h3><?php echo "{$article_title}"; ?></h3>
+      		<h4><?php echo "{$article_author}"; ?><span class=""><?php echo "{$article_date}"; ?></span></h4>
+      		<p><?php echo "{$article_body}"; ?></p>
       		<button class="btn btn-info">More</button>
       		
       		<hr>
+      		
+      	<?php	} //Continue while Loop through the articles?>
       		
       	</div>
       	
