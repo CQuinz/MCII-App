@@ -7,13 +7,14 @@
     <section id="hero">
    	
     	<div class="container">
-      		<div class="hero-text">
-				<h1 class="display-3">Welcome to MCII!</h1>
-				<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. 
+      		<div class="hero-text text-center">
+				<h1 class="display-1 font-weight-bold">MCII!</h1>
+				<h2 class="text-uppercase">The best goal setting application ever!</h2>
+				<p class="lead">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. 
 				is this working???????
 				Use it as a starting point to create something more unique. Find out <a href="#">more&raquo;</a></p>
 				<button class="btn btn-primary btn-lg" href="#" role="button"><a> Login &raquo;</a></button>
-				<button class="btn btn-success btn-lg" href="#" role="button"><a> Sign up &raquo;</a></button>
+				<button class="btn btn-success btn-lg" href="#" role="button"><a>Register &raquo;</a></button>
 			</div>
 	 	</div>
     

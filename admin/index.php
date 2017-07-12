@@ -11,12 +11,12 @@
 	<?php include "admin_includes/admin_nav.php"; ?>
 		
 	
-		<h1 class="text-center display-4 text-uppercase">Admin Page</h1>
+		
 		
 		
 	
 	 
-	 <section id="admin_area">
+	 <section id="admin_area" class="">
 	 
 	 	<!--ADMIN NAV-->
 	 	<div class="card-group">
@@ -64,9 +64,13 @@
 		  </div>
 		  
 		</div>
+		
+		
 	
 		
-		 <div id="admin_content">
+		 <div id="admin_content" class="container">
+		 <h1 class="text-center display-4 text-uppercase">Admin Page</h1>
+		<hr>
 		 	
 		 <!--ADMIN INCLUDES-->
 		 	<!--A dynamic area to display admin content -->
