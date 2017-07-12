@@ -10,11 +10,11 @@
 	
 	<?php include "admin_includes/admin_nav.php"; ?>
 		
-	<div class="jumbotron">
-		<h1 class="text-center display-3 text-uppercase">Admin Page</h1>
+	
+		<h1 class="text-center display-4 text-uppercase">Admin Page</h1>
 		
 		
-	</div>
+	
 	 
 	 <section id="admin_area">
 	 
@@ -82,6 +82,10 @@
 			 switch($source){
 				case "view_articles";
 				include "admin_includes/view_all_articles.php";
+				break;
+					 
+				case "create_article";
+				include "admin_includes/admin_create_article.php";
 				break;
 					 
 			 }
