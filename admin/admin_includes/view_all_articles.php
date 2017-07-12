@@ -1,6 +1,6 @@
 			<!--VIEW ALL ARTICLES-->
 			
-			<h2 class="text-center display-4 ">View All Posts</h2>
+			<h3 class="text-center">View All Posts</h3>
 			
 	 		<table class="table table-striped table-hover">
 		 		<thead class="thead-inverse">
@@ -39,8 +39,8 @@
 		 			<tr>
 						<td><?php echo "{$article_id}"; ?></td>
 						<td><?php echo "{$article_title}"; ?></td>
-						<td><?php echo "{$article_date}"; ?></td>
 						<td><?php echo "{$article_author}"; ?></td>
+						<td><?php echo "{$article_date}"; ?></td>
 						<td><?php echo "{$article_body_abbv}"; ?></td>
 						<td><a href="#">Edit</a></td>
 						<td><a href="#">Delete</a></td>

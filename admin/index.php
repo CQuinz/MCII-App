@@ -11,7 +11,7 @@
 	<?php include "admin_includes/admin_nav.php"; ?>
 		
 	<div class="jumbotron">
-		<h1 class="text-center display-2 text-uppercase">Admin Page</h1>
+		<h1 class="text-center display-3 text-uppercase">Admin Page</h1>
 		
 		
 	</div>
@@ -23,40 +23,43 @@
 	 	
 		  <div class="card">
 			<div class="card-block text-center">
-			  <i class="fa fa-bullseye fa-4x card-img-top" aria-hidden="true"></i>
+			  <i class="fa fa-bullseye fa-3x card-img-top" aria-hidden="true"></i>
 			  <h4 class="card-title ">Goals</h4>
-			  
-			  <a href="" class="btn btn-info">View All Goals</a>
-			  <a href="" class="btn btn-info">Create Goal</a>
+			  <hr>
+			  <a href="" class="card-link">View All Goals</a>
+			  <a href="" class="card-link">Create Goal</a>
 			</div>
 		  </div>
 		  
 		  <div class="card">
 			
 			<div class="card-block text-center">
-			  <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+			  <i class="fa fa-users fa-3x" aria-hidden="true"></i>
 			  <h4 class="card-title">Articles</h4>
-			  <a href="" class="btn btn-info">View All Articles</a>
-			  <a href="" class="btn btn-info">Create Article</a>
+			  <hr>
+			  <a href="" class="card-link">View All Articles</a>
+			  <a href="" class="card-link">Create Article</a>
 			</div>
 		  </div>
 		  
 		  <div class="card">
 			
 			<div class="card-block text-center">
-			  <i class="fa fa-book fa-4x" aria-hidden="true"></i>
+			  <i class="fa fa-book fa-3x" aria-hidden="true"></i>
 			  <h4 class="card-title">Users</h4>
-			  <a href="" class="btn btn-info">View All Users</a>
-			  <a href="" class="btn btn-info">Create User</a>
+			  <hr>
+			  <a href="" class="card-link">View All Users</a>
+			  <a href="" class="card-link">Create User</a>
 			</div>
 		  </div>
 		  
 		  <div class="card">
 			 <div class="card-block text-center">
-			  <i class="fa fa-question-circle fa-4x" aria-hidden="true"></i>
+			  <i class="fa fa-question-circle fa-3x" aria-hidden="true"></i>
 			  <h4 class="card-title">Hints</h4>
-			  <a href="" class="btn btn-info">View All Hints</a>
-			  <a href="" class="btn btn-info">Create Hint</a>
+			  <hr>
+			  <a href="" class="card-link">View All Hints</a>
+			  <a href="" class="card-link">Create Hint</a>
 			 </div>
 		  </div>
 		  
@@ -77,7 +80,9 @@
 			 }
 			 
 			 switch($source){
-					 
+				case "view_articles";
+				include "admin_includes/view_all_articles.php";
+				break;
 					 
 			 }
 			 
