@@ -1,7 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
 <!--THIS IS THE HEADER-->
 
 <?php include "admin_includes/admin_header.php"; ?>
@@ -22,36 +20,48 @@
 	 
 	 	<!--ADMIN NAV-->
 	 	<div class="card-group">
+	 	
 		  <div class="card">
-			
 			<div class="card-block text-center">
-			  <i class="fa fa-bullseye fa-5x card-img-top" aria-hidden="true"></i>
+			  <i class="fa fa-bullseye fa-4x card-img-top" aria-hidden="true"></i>
 			  <h4 class="card-title ">Goals</h4>
 			  
 			  <a href="" class="btn btn-info">View All Goals</a>
 			  <a href="" class="btn btn-info">Create Goal</a>
 			</div>
 		  </div>
+		  
 		  <div class="card">
 			
 			<div class="card-block text-center">
-			  <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+			  <i class="fa fa-users fa-4x" aria-hidden="true"></i>
 			  <h4 class="card-title">Articles</h4>
 			  <a href="" class="btn btn-info">View All Articles</a>
 			  <a href="" class="btn btn-info">Create Article</a>
 			</div>
 		  </div>
+		  
 		  <div class="card">
 			
 			<div class="card-block text-center">
-			  <i class="fa fa-book fa-5x" aria-hidden="true"></i>
+			  <i class="fa fa-book fa-4x" aria-hidden="true"></i>
 			  <h4 class="card-title">Users</h4>
 			  <a href="" class="btn btn-info">View All Users</a>
 			  <a href="" class="btn btn-info">Create User</a>
 			</div>
 		  </div>
+		  
+		  <div class="card">
+			 <div class="card-block text-center">
+			  <i class="fa fa-question-circle fa-4x" aria-hidden="true"></i>
+			  <h4 class="card-title">Hints</h4>
+			  <a href="" class="btn btn-info">View All Hints</a>
+			  <a href="" class="btn btn-info">Create Hint</a>
+			 </div>
+		  </div>
+		  
 		</div>
-		
+	
 		
 		 <div id="admin_content">
 		 	
