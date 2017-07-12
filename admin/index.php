@@ -26,8 +26,8 @@
 			  <i class="fa fa-bullseye fa-3x card-img-top" aria-hidden="true"></i>
 			  <h4 class="card-title ">Goals</h4>
 			  <hr>
-			  <a href="" class="card-link">View All Goals</a>
-			  <a href="" class="card-link">Create Goal</a>
+			  <a href="index.php?source=view_articles" class="card-link">View All Goals</a>
+			  <a href="index.php?source=create_article" class="card-link">Create Goal</a>
 			</div>
 		  </div>
 		  
