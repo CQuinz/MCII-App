@@ -18,15 +18,18 @@
 	 
 	 <section id="admin_area" class="">
 	 
+	 	 <h1 id="admin-header" class="text-center display-4 text-uppercase">Admin Page</h1>
+		
+	 
 	 	<!--ADMIN NAV-->
 	 	<div class="card-group">
 	 	
 		  <div class="card">
 			<div class="card-block text-center">
-			  <i class="fa fa-bullseye fa-3x card-img-top" aria-hidden="true"></i>
+			  <i class="fa fa-bullseye fa-2x card-img-top" aria-hidden="true"></i>
 			  <h4 class="card-title ">Goals</h4>
 			  <hr>
-			  <a href="index.php?source=view_articles" class="card-link">View All Goals</a>
+			  <a href="" class="card-link">View All Goals</a>
 			  <a href="index.php?source=create_article" class="card-link">Create Goal</a>
 			</div>
 		  </div>
@@ -34,18 +37,18 @@
 		  <div class="card">
 			
 			<div class="card-block text-center">
-			  <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+			  <i class="fa fa-users fa-2x" aria-hidden="true"></i>
 			  <h4 class="card-title">Articles</h4>
 			  <hr>
-			  <a href="" class="card-link">View All Articles</a>
-			  <a href="" class="card-link">Create Article</a>
+			  <a href="index.php?source=view_articles" class="card-link">View All Articles</a>
+			  <a href="index.php?source=create_article" class="card-link">Create Article</a>
 			</div>
 		  </div>
 		  
 		  <div class="card">
 			
 			<div class="card-block text-center">
-			  <i class="fa fa-book fa-3x" aria-hidden="true"></i>
+			  <i class="fa fa-book fa-2x" aria-hidden="true"></i>
 			  <h4 class="card-title">Users</h4>
 			  <hr>
 			  <a href="" class="card-link">View All Users</a>
@@ -55,7 +58,7 @@
 		  
 		  <div class="card">
 			 <div class="card-block text-center">
-			  <i class="fa fa-question-circle fa-3x" aria-hidden="true"></i>
+			  <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
 			  <h4 class="card-title">Hints</h4>
 			  <hr>
 			  <a href="" class="card-link">View All Hints</a>
@@ -68,9 +71,8 @@
 		
 	
 		
-		 <div id="admin_content" class="container">
-		 <h1 class="text-center display-4 text-uppercase">Admin Page</h1>
-		<hr>
+		 <div id="admin_content" class="container-fluid">
+		
 		 	
 		 <!--ADMIN INCLUDES-->
 		 	<!--A dynamic area to display admin content -->
