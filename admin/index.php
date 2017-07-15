@@ -1,9 +1,7 @@
-<?php ob_start;?>
 <?php include_once "admin_includes/admin_header.php"; ?>
-<?php ob_end_flush(); ?>
 <section id="admin_area" class="">
 	 
-	 	 <h1 id="admin-header" class="text-center display-4 text-uppercase">Admin Page</h1>
+	 	<h1 id="admin-header" class="text-center display-4 text-uppercase">Admin Page</h1>
 		
 	 
 	 	<!--ADMIN NAV-->

@@ -1,5 +1,5 @@
-<?php ob_start;?>
-<?php include_once "admin_includes/admin_header.php"; ?>
+<?php //ob_start;?>
+<?php include "admin_includes/admin_header.php"; ?>
 
 <section id="admin_area" class="">
 	 
@@ -71,34 +71,13 @@
 		 		</tr>
 		 	</thead>
 		 		<tbody>
-		<?php 
-			 $query= "SELECT * FROM article_catagories";
-			 $all_catagories= mysqli_query($db,$query);
-			 
-			 while($row =mysqli_fetch_assoc($all_catagories)){
-			
-			//Creating variables for the array
-			$cat_id = $row['cat_id'];
-			$cat_title = $row['cat_title'];
-		
-		?>
-		 			<tr>
-		 				<td><?php echo $cat_id; ?></td>
-		 				<td><?php echo $cat_title; ?></td>
-		 				<td><a href="article_catagories.php?delete=<?php echo $cat_id; ?>">Delete</a></td>
-		 			</tr>
-		 			<?php } ?>
+		<?php show_all_catagories(); ?>
 		 		</tbody>
 		 	
 		 </table>
 		 <?php 
 			 //delete catagories query
-			 if(isset($_GET['delete'])){
-				$delete_cat_key= $_GET['delete'];
-			 	$query="DELETE FROM article_catagories WHERE cat_id= {$delete_cat_key}";
-				$delete_catagory= mysqli_query($db,$query);
-				 
-			 }
+			 delete_catagories();
 			?>
 		 	
 

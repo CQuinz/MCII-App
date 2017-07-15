@@ -50,11 +50,11 @@
 					if(isset($_GET['delete'])){
 						
 						$delete_article_key = $_GET['delete'];
-						
 						$query ="DELETE FROM articles WHERE article_id= {$delete_article_key}";
 						$delete_article_query = mysqli_query($db,$query);
 						
-						header("location: index.php");
+						//header("Location: index.php");
+						
 					}
 					
 					?>

@@ -1,5 +1,6 @@
-<?php include "../includes/db.php"; ?>
-<?php include "admin_includes/admin_nav.php"; ?>
+<?php require "../includes/db.php"; ?>
+<?php require "functions.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
