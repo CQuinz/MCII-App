@@ -1,6 +1,4 @@
-			<!--VIEW ALL ARTICLES-->
-			
-			<h3 class="text-center">View All Posts</h3>
+<h3 class="text-center">View All Posts</h3>
 			
 	 		<table class="table table-striped table-hover">
 		 		<thead class="thead-inverse">
@@ -43,9 +41,25 @@
 						<td><?php echo "{$article_date}"; ?></td>
 						<td><?php echo "{$article_body_abbv}"; ?></td>
 						<td><a href="#">Edit</a></td>
-						<td><a href="#">Delete</a></td>
+						<td><?php echo "<a href='index.php?source=view_articles&delete={$article_id}'>Delete</a>"; ?></td>
 		 			</tr>
 		 			<?php } //Loop through the results ?>
+		 			
+		 			<?php 
+					//DELETE ARTICLES QUERY
+					if(isset($_GET['delete'])){
+						
+						$delete_article_key = $_GET['delete'];
+						
+						$query ="DELETE FROM articles WHERE article_id= {$delete_article_key}";
+						$delete_article_query = mysqli_query($db,$query);
+						
+						header("location: index.php");
+					}
+					
+					?>
+		 			
+		 			
 		 			
 		 		</tbody>
 		 		

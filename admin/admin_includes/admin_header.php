@@ -1,8 +1,5 @@
-<?php //HEADER FOR ADMIN ?>
-
-<?php include "../includes/db.php" ?>
-
-
+<?php include "../includes/db.php"; ?>
+<?php include "admin_includes/admin_nav.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
