@@ -53,7 +53,7 @@
 						$query ="DELETE FROM articles WHERE article_id= {$delete_article_key}";
 						$delete_article_query = mysqli_query($db,$query);
 						
-						//header("Location: index.php");
+						header("Location: index.php?source=view_articles");
 						
 					}
 					

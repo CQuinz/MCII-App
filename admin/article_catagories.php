@@ -1,6 +1,6 @@
 <?php //ob_start;?>
 <?php include "admin_includes/admin_header.php"; ?>
-
+<?php include "admin_includes/admin_nav.php"; ?>
 <section id="admin_area" class="">
 	 
 	 	 <h1 id="admin-header" class="text-center display-4 text-uppercase">Admin Page</h1>

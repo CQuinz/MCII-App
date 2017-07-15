@@ -1,4 +1,4 @@
-<?php require "../includes/db.php"; ?>
+<?php include "../includes/db.php"; ?>
 <?php require "functions.php"; ?>
 
 <!DOCTYPE html>
