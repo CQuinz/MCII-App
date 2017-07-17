@@ -5,7 +5,7 @@
     <div class="jumbotron">
     	<div class="container">
       		<div class="jumbo-text">
-				<h1 class="display-3">MCII Articles</h1>
+				<h1 class="display-3 font-weight-bold">MCII Articles</h1>
 				<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique. Find out <a href="#">more&raquo;</a></p>
 				
 			</div>
@@ -40,8 +40,8 @@
 			$article_body = $row['article_body'];
 			
 		?>
-      		<h3><?php echo "{$article_title}"; ?></h3>
-      		<h4><?php echo "{$article_author}"; ?><span class=""><?php echo "{$article_date}"; ?></span></h4>
+      		<h3 class="display-4"><?php echo "{$article_title}"; ?></h3>
+      		<h4><?php echo "{$article_author}"; ?><small class="text-muted"> - <?php echo "{$article_date}"; ?></small></h4>
       		<p><?php echo "{$article_body}"; ?></p>
       		<button class="btn btn-info">More</button>
       		
@@ -53,8 +53,11 @@
       	
       	<!--SIDEBAR INCLUDES-->
       	<div class="col-md-4">
-      		<input class="form-control" type="text" value="Search Articles">
-      		<button><i class="fa fa-search"></i></button>
+      		<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Search Articles" name="search_articles">
+			  <button type="submit" class="input-group-addon fa fa-search" id="basic-addon2" name="submit_search"></button>
+			</div>
+<!--      		<button><i class=""></i></button>-->
       	</div>
       </div>
       

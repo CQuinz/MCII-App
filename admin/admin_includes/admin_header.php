@@ -1,5 +1,6 @@
 <?php ob_start(); ?>
 <?php include "../includes/db.php"; ?>
+<?php include "admin_nav.php"; ?>
 <?php require "functions.php"; ?>
 
 <!DOCTYPE html>
