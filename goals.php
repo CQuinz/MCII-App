@@ -2,11 +2,13 @@
    <?php include "includes/header.php"?>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="">
     	<div class="container">
       		<div class="jumbo-text text-center">
 				<h1 class="display-3 font-weight-bold">My Goals</h1>
 				<p>Here is an overview of all the goals you have currently created</p>
+				
+				<p class="btn btn-link"><a href="create_goal.php">Create Goal</a></p>
 				
 			</div>
 	 	</div>
@@ -99,6 +101,54 @@
 		 		</tbody>
 		 		
 		 	</table>
+     		
+     		<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+			  Create New Goal
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Create Your Goal</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <div class="modal-body">
+					
+					<form action="">
+						<div class="form-group">
+							<label for="article_tags" class="">Goal</label>
+							<input type="text" placeholder="Enter your goal" name="article_tags" class="form-control">
+						</div>
+
+
+						<div class="form-group">
+							<label for="article_content">Let's get specific:</label>
+							<textarea type="text" placeholder="What specifically do you want? When and where do you want it?" name="article_body" class="form-control" rows="6"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="article_content">Benifit:</label>
+							<textarea type="text" placeholder="Why? How will you benifit?" name="article_body" class="form-control" rows="6"></textarea>
+						</div>
+						
+						
+						<input type="submit" class="btn btn-success" value="Create Goal" name="create_article">
+					</form>
+					
+				  </div>
+				  
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
       		
       	</div>
       	
