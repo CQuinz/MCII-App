@@ -39,7 +39,10 @@ if(isset($_GET['edit'])){
 				
 				<label for="article_status" class="mr-sm-2">Status</label>
 				<select name="article_status" id="">
-					<option value='<?php echo "{$article_status}"; ?>'><?php echo "{$article_status}"; ?></option>
+					<option value='<?php echo "{$article_status}"; ?>' selected><?php echo "{$article_status}"; ?></option>
+					<option value="draft">Draft</option>
+					<option value="published">Publish</option>
+					<option value="unpublished">Unpublish</option>
 					
 				</select>
 			</div>
@@ -81,7 +84,7 @@ if(isset($_GET['edit'])){
 			$query .= "article_title = '{$article_title}', ";
 			$query .= "article_status = '{$article_status}', ";
 			$query .= "article_tags = '{$article_tags}', ";
-			$query .= "article_body = '{$article_author}' ";
+			$query .= "article_body = '{$article_body}' ";
 			$query .= "WHERE article_id = {$article_id}";
 
 			$edit_article = mysqli_query($db,$query);
