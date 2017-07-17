@@ -42,6 +42,7 @@
 		?>
       		<h3 class="display-4"><?php echo "{$article_title}"; ?></h3>
       		<h4><?php echo "{$article_author}"; ?><small class="text-muted"> - <?php echo "{$article_date}"; ?></small></h4>
+      		<img src="images/color-road.jpg" alt="" class="img-fluid">
       		<p><?php echo "{$article_body}"; ?></p>
       		<button class="btn btn-info">More</button>
       		
