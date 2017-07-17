@@ -46,7 +46,7 @@
 						<td><?php echo "{$article_body_abbv}"; ?></td>
 						<td><?php echo "{$article_tags}"; ?></td>	
 						<td><?php echo "{$article_status}"; ?></td>
-						<td><a href="#">Edit</a></td>
+						<td><?php echo "<a href='index.php?source=edit_article&edit={$article_id}'>Edit</a>"; ?></td>
 						<td><?php echo "<a href='index.php?source=view_articles&delete={$article_id}'>Delete</a>"; ?></td>
 		 			</tr>
 		 			<?php } //Loop through the results ?>

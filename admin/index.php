@@ -76,6 +76,10 @@
 				case "create_article";
 				include "admin_includes/admin_create_article.php";
 				break;
+					 
+				case "edit_article";
+				include "admin_includes/admin_edit_article.php";
+				break;
 				
 					 
 			 }
