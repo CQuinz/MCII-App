@@ -121,30 +121,39 @@
 					
 					<form action="">
 						<div class="form-group">
-							<label for="article_tags" class="">Goal</label>
+							<label for="article_tags" class="font-weight-bold">Goal:</label>
 							<input type="text" placeholder="Enter your goal" name="article_tags" class="form-control">
 						</div>
 
 
 						<div class="form-group">
-							<label for="article_content">Let's get specific:</label>
-							<textarea type="text" placeholder="What specifically do you want? When and where do you want it?" name="article_body" class="form-control" rows="6"></textarea>
+							<label for="article_content" class="font-weight-bold">Let's get specific:</label>
+							<textarea type="text" placeholder="What specifically do you want? When and where do you want it?" name="article_body" class="form-control" rows="2"></textarea>
 						</div>
 						
 						<div class="form-group">
-							<label for="article_content">Benifit:</label>
-							<textarea type="text" placeholder="Why? How will you benifit?" name="article_body" class="form-control" rows="6"></textarea>
+							<label for="article_content" class="font-weight-bold">Benifit:</label>
+							<textarea type="text" placeholder="Why? How will you benifit?" name="article_body" class="form-control" rows="2"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="article_content" class="font-weight-bold">Obstacle:</label>
+							<textarea type="text" placeholder="What is something that stops you from achieving this?" name="article_body" class="form-control" rows="2"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="article_content" class="font-weight-bold">Plan:</label>
+							<textarea type="text" placeholder="If X occurs then I will Y.." name="article_body" class="form-control" rows="2"></textarea>
 						</div>
 						
 						
-						<input type="submit" class="btn btn-success" value="Create Goal" name="create_article">
 					</form>
 					
 				  </div>
 				  
 				  <div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-primary">Create Goal</button>
 				  </div>
 				</div>
 			  </div>
