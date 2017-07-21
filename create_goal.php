@@ -4,31 +4,52 @@
   <script type="application/javascript">
 	  
 			function checkPossibility(){
+				var showAlertPossibility =false;
+				var possibilityMessage ="";
+				var possibilityValue = document.getElementById("goal_difficulty").value;
 				
-				var possibilityValue = document.forms["create_goal"]["goal_difficulty"].value;
-				if(possibilityValue == "veryChallenging"){
-					alert("Very challenging!!");
-				}else if(possibilityValue == "challenging"){
-					alert("Challenging!!");
-				}else{
-				alert("All good!");
+				
+				switch(possibilityValue){
+					case "veryChallenging":
+					possibilityMessage = "<p><strong>Great!!</strong> This goal will push you. As it is <strong><i>Very Challenging </i></strong>do consider possibly breaking it down into smaller sub-goals.<p>";
+					break;
+						
+					case "challenging":
+					possibilityMessage = "<p><strong>Excellent!!</strong> A goal that is <strong><i>Challenging</i></strong> can more effectively mobilize your inner resources.<p>";
+					break;
+						
+					case "moderate":
+					possibilityMessage = "<p><strong>Good!</strong> There is nothing wrong with having a goal with a <strong><i>Moderate</i></strong> level of difficulty<p>";
+					break;
+						
+					default:
+					possibilityMessage ="";
+				}
+				
+
+
+				if(showAlertPossibility =true){
+						document.getElementById("difficultyMessage").style.display="inline";
+						document.getElementById("difficultyMessage").innerHTML=possibilityMessage;
 				}
 				
 			}
+				
+	
 	 
 		
 			
-			function checkGoalName(){
-				var goalNameValue = document.getElementById("goal_name").value;
-				if(goalNameValue == "magic"){
-					alert("Magic!!");
-				}else if(goalNameValue == "stupid"){
-					alert("Stupid!!");
-				}else{
-				alert("All good!");
-				}
-				
-			}
+//			function checkGoalName(){
+//				var goalNameValue = document.getElementById("goal_name").value;
+//				if(goalNameValue == "magic"){
+//					alert("Magic!!");
+//				}else if(goalNameValue == "stupid"){
+//					alert("Stupid!!");
+//				}else{
+//				alert("All good!");
+//				}
+//				
+//			}
 </script>
 		
     
@@ -84,21 +105,25 @@
 				<div class="card-footer">
 				  <div class="form-group">
 <!--					<label for="goal_difficulty" class="font-weight-bold">Difficulty:</label>-->
-					<select name="goal_difficulty" id="goal_difficulty" class="form-control" onblur="checkPossibility()">
+					<select name="goal_difficulty" id="goal_difficulty" class="form-control" onchange="checkPossibility()">
 					  	<option value="veryChallenging">Very challenging</option>
 						<option value="challenging">Challenging</option>
-						<option value="averageDifficulty">Average difficulty</option>
+						<option value="moderate">Moderate</option>
 						<option value="easy">Easy</option>
 						<option value="tooEasy">Too easy</option>
 					</select>
 				  </div>
+				  
 				  <!--ALERT MESSAGE FOR DIFFICULTY -->
-				  <div id="difficultyMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
-					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					  </button>
-					  <p></p>
-				 </div>
+				  
+					<div id="difficultyMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
+<!--
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span id="difficultyX" aria-hidden="true">&times;</span>
+						  </button>
+-->
+						  
+					</div><!--END OF DIFFICULTY ALERT MESSAGE-->
 				  
 				</div>
 			  </div><!--CARD-->

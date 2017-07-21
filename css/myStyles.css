@@ -29,3 +29,13 @@ html,body{
 #admin-header{
 	margin-top: 40px;
 }
+
+/*FORMS----------------------------*/
+
+#difficultyMessage{
+	display: none;
+}
+
+#difficultyX {
+	display: hidden;
+}
