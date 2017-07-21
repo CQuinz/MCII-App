@@ -1,14 +1,43 @@
 <!--HEADER INCLUDE-->
    <?php include "includes/header.php"?>
 
-  
+  <script type="application/javascript">
+	  
+			function checkPossibility(){
+				
+				var possibilityValue = document.forms["create_goal"]["goal_difficulty"].value;
+				if(possibilityValue == "veryChallenging"){
+					alert("Very challenging!!");
+				}else if(possibilityValue == "challenging"){
+					alert("Challenging!!");
+				}else{
+				alert("All good!");
+				}
+				
+			}
+	 
+		
+			
+			function checkGoalName(){
+				var goalNameValue = document.getElementById("goal_name").value;
+				if(goalNameValue == "magic"){
+					alert("Magic!!");
+				}else if(goalNameValue == "stupid"){
+					alert("Stupid!!");
+				}else{
+				alert("All good!");
+				}
+				
+			}
+</script>
+		
     
     <div class="container">
 		
 		<h1 class="font-weight-bold text-center">Create My Goal</h1>
 		<p>Let's create your goal</p>
 		
-		<form action="" method="post">
+		<form action="" method="post" name="create_goal">
 		
 		<section id="goal_details">
 			
@@ -16,7 +45,7 @@
 					<div class="input-group col-md-6 offset-md-3 my-3">
 <!--						<label for="goal_name" class="font-weight-bold">I want to:</label>-->
 						<span class="input-group-addon" id="basic-addon2">I want to:</span>
-						<input type="text" class="form-control" placeholder="enter goal here" name="goal_name">
+						<input type="text" class="form-control" id="goal_name" placeholder="enter goal here" name="goal_name" onblur="checkGoalName()">
 					</div>
 				</div>
 			
@@ -63,6 +92,14 @@
 						<option value="tooEasy">Too easy</option>
 					</select>
 				  </div>
+				  <!--ALERT MESSAGE FOR DIFFICULTY -->
+				  <div id="difficultyMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					  <p></p>
+				 </div>
+				  
 				</div>
 			  </div><!--CARD-->
 			  
@@ -183,20 +220,6 @@
 		</section>
 		</form>
 			
-		<script type="application/javascript">
-			function checkPossibility(){
-				var possibilityValue = document.getElementById("goal_difficulty").value;
-				if(possibilityValue == "Very challenging"){
-					alert("Very challenging!!");
-				}else if(possibilityValue == "Challenging"){
-					alert("Challenging!!");
-				}
-				
-			}else{
-				alert("All good!");
-			}
-		
-		</script>
 		
 	 </div>
     
