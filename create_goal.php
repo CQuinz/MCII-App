@@ -3,35 +3,60 @@
 
   <script type="application/javascript">
 	  
-			function checkPossibility(){
+	  
+
+	  
+	  
+	  		function toggleDifficultyOptions(){
+				var possibilityValue = document.getElementById("goal_possibility").value;
+//				
+				if(possibilityValue="stronglyDisbelieve"){
+
+					document.getElementById("easy").hidden=true;
+					document.getElementById("tooEasy").hidden=true;;
+					
+				}else if(possibilityValue="dontBelieve"){
+
+					document.getElementById("easy").hidden=true;
+					document.getElementById("tooEasy").hidden=true;;
+					
+				}
+			}
+	  
+
+	  
+			function checkDifficulty(){
+				
 				var showAlertPossibility =false;
-				var possibilityMessage ="";
-				var possibilityValue = document.getElementById("goal_difficulty").value;
+				var difficultyMessage ="";
+				var difficultyValue = document.getElementById("goal_difficulty").value;
 				
 				
-				switch(possibilityValue){
+				
+				switch(difficultyValue){
 					case "veryChallenging":
-					possibilityMessage = "<p><strong>Great!!</strong> This goal will push you. As it is <strong><i>Very Challenging </i></strong>do consider possibly breaking it down into smaller sub-goals.<p>";
+					difficultyMessage = "<p><strong>Great!!</strong> This goal will push you. As it is <strong><i>Very Challenging </i></strong>do consider possibly breaking it down into smaller sub-goals.<p>";
 					break;
 						
 					case "challenging":
-					possibilityMessage = "<p><strong>Excellent!!</strong> A goal that is <strong><i>Challenging</i></strong> can more effectively mobilize your inner resources.<p>";
+					difficultyMessage = "<p><strong>Excellent!!</strong> A goal that is <strong><i>Challenging</i></strong> can more effectively mobilize your inner resources.<p>";
 					break;
 						
 					case "moderate":
-					possibilityMessage = "<p><strong>Good!</strong> There is nothing wrong with having a goal with a <strong><i>Moderate</i></strong> level of difficulty<p>";
+					difficultyMessage = "<p><strong>Good!</strong> There is nothing wrong with having a goal with a <strong><i>Moderate</i></strong> level of difficulty<p>";
 					break;
 						
 					default:
-					possibilityMessage ="";
+					difficultyMessage ="";
 				}
 				
 
 
 				if(showAlertPossibility =true){
 						document.getElementById("difficultyMessage").style.display="inline";
-						document.getElementById("difficultyMessage").innerHTML=possibilityMessage;
+						document.getElementById("difficultyMessage").innerHTML=difficultyMessage;
 				}
+
 				
 			}
 				
@@ -85,11 +110,11 @@
 				<div class="card-footer">
 				  <div class="form-group">
 <!--					<label for="goal_possibility" class="font-weight-bold">Possibility:</label>-->
-					<select name="goal_type" id="" class="form-control">
+					<select name="goal_type" id="goal_possibility" class="form-control" onchange="toggleDifficultyOptions()">
 					  	<option value="stronglyBelieve">Strongly believe</option>
 						<option value="believe">Believe</option>
 						<option value="unsure">Unsure</option>
-						<option value="don'tBelieve">Don't believe</option>
+						<option value="dontBelieve">Don't believe</option>
 						<option value="stronglyDisbelieve">Strongly disbelieve</option>
 					</select>
 				  </div>
@@ -105,12 +130,13 @@
 				<div class="card-footer">
 				  <div class="form-group">
 <!--					<label for="goal_difficulty" class="font-weight-bold">Difficulty:</label>-->
-					<select name="goal_difficulty" id="goal_difficulty" class="form-control" onchange="checkPossibility()">
+					<select name="goal_difficulty" id="goal_difficulty" class="form-control" onchange="checkDifficulty()">
 					  	<option value="veryChallenging">Very challenging</option>
 						<option value="challenging">Challenging</option>
 						<option value="moderate">Moderate</option>
-						<option value="easy">Easy</option>
-						<option value="tooEasy">Too easy</option>
+						<option value="easy" id="easy">Easy</option>
+						<option value="tooEasy" id="tooEasy">Too easy</option>
+						
 					</select>
 				  </div>
 				  

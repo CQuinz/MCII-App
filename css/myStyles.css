@@ -36,6 +36,9 @@ html,body{
 	display: none;
 }
 
-#difficultyX {
-	display: hidden;
+span #toggleDifficulty{
+	display: none;
 }
+
+
+
