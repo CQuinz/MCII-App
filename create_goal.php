@@ -10,16 +10,19 @@
 	  		function toggleDifficultyOptions(){
 				var possibilityValue = document.getElementById("goal_possibility").value;
 //				
-				if(possibilityValue="stronglyDisbelieve"){
+				if(possibilityValue=="stronglyDisbelieve"){
 
 					document.getElementById("easy").hidden=true;
 					document.getElementById("tooEasy").hidden=true;;
 					
-				}else if(possibilityValue="dontBelieve"){
+				}else if(possibilityValue=="dontBelieve"){
 
 					document.getElementById("easy").hidden=true;
-					document.getElementById("tooEasy").hidden=true;;
+					document.getElementById("tooEasy").hidden=true;
 					
+				}else{
+					document.getElementById("easy").hidden=false;
+					document.getElementById("tooEasy").hidden=false;
 				}
 			}
 	  
@@ -30,25 +33,26 @@
 				var showAlertPossibility =false;
 				var difficultyMessage ="";
 				var difficultyValue = document.getElementById("goal_difficulty").value;
+				var possibilityValue = document.getElementById("goal_possibility").value;
 				
 				
 				
-				switch(difficultyValue){
-					case "veryChallenging":
-					difficultyMessage = "<p><strong>Great!!</strong> This goal will push you. As it is <strong><i>Very Challenging </i></strong>do consider possibly breaking it down into smaller sub-goals.<p>";
-					break;
-						
-					case "challenging":
-					difficultyMessage = "<p><strong>Excellent!!</strong> A goal that is <strong><i>Challenging</i></strong> can more effectively mobilize your inner resources.<p>";
-					break;
-						
-					case "moderate":
-					difficultyMessage = "<p><strong>Good!</strong> There is nothing wrong with having a goal with a <strong><i>Moderate</i></strong> level of difficulty<p>";
-					break;
-						
-					default:
-					difficultyMessage ="";
-				}
+					switch(difficultyValue){
+						case "veryChallenging":
+						difficultyMessage = "<p><strong>Great!!</strong> This goal will push you. As it is <strong><i>Very Challenging </i></strong>do consider possibly breaking it down into smaller sub-goals.<p>";
+						break;
+
+						case "challenging":
+						difficultyMessage = "<p><strong>Excellent!!</strong> A goal that is <strong><i>Challenging</i></strong> can more effectively mobilize your inner resources.<p>";
+						break;
+
+						case "moderate":
+						difficultyMessage = "<p><strong>Good!</strong> There is nothing wrong with having a goal with a <strong><i>Moderate</i></strong> level of difficulty<p>";
+						break;
+
+						default:
+						difficultyMessage ="";
+					}
 				
 
 
