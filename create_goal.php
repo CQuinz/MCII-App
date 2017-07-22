@@ -1,85 +1,7 @@
 <!--HEADER INCLUDE-->
    <?php include "includes/header.php"?>
 
-  <script type="application/javascript">
-	  
-	  
-
-	  
-	  
-	  		function toggleDifficultyOptions(){
-				var possibilityValue = document.getElementById("goal_possibility").value;
-//				
-				if(possibilityValue=="stronglyDisbelieve"){
-
-					document.getElementById("easy").hidden=true;
-					document.getElementById("tooEasy").hidden=true;;
-					
-				}else if(possibilityValue=="dontBelieve"){
-
-					document.getElementById("easy").hidden=true;
-					document.getElementById("tooEasy").hidden=true;
-					
-				}else{
-					document.getElementById("easy").hidden=false;
-					document.getElementById("tooEasy").hidden=false;
-				}
-			}
-	  
-
-	  
-			function checkDifficulty(){
-				
-				var showAlertPossibility =false;
-				var difficultyMessage ="";
-				var difficultyValue = document.getElementById("goal_difficulty").value;
-				var possibilityValue = document.getElementById("goal_possibility").value;
-				
-				
-				
-					switch(difficultyValue){
-						case "veryChallenging":
-						difficultyMessage = "<p><strong>Great!!</strong> This goal will push you. As it is <strong><i>Very Challenging </i></strong>do consider possibly breaking it down into smaller sub-goals.<p>";
-						break;
-
-						case "challenging":
-						difficultyMessage = "<p><strong>Excellent!!</strong> A goal that is <strong><i>Challenging</i></strong> can more effectively mobilize your inner resources.<p>";
-						break;
-
-						case "moderate":
-						difficultyMessage = "<p><strong>Good!</strong> There is nothing wrong with having a goal with a <strong><i>Moderate</i></strong> level of difficulty<p>";
-						break;
-
-						default:
-						difficultyMessage ="";
-					}
-				
-
-
-				if(showAlertPossibility =true){
-						document.getElementById("difficultyMessage").style.display="inline";
-						document.getElementById("difficultyMessage").innerHTML=difficultyMessage;
-				}
-
-				
-			}
-				
-	
-	 
-		
-			
-//			function checkGoalName(){
-//				var goalNameValue = document.getElementById("goal_name").value;
-//				if(goalNameValue == "magic"){
-//					alert("Magic!!");
-//				}else if(goalNameValue == "stupid"){
-//					alert("Stupid!!");
-//				}else{
-//				alert("All good!");
-//				}
-//				
-//			}
-</script>
+  
 		
     
     <div class="container">
@@ -114,7 +36,7 @@
 				<div class="card-footer">
 				  <div class="form-group">
 <!--					<label for="goal_possibility" class="font-weight-bold">Possibility:</label>-->
-					<select name="goal_type" id="goal_possibility" class="form-control" onchange="toggleDifficultyOptions()">
+					<select name="goal_type" id="goal_possibility" class="form-control" onchange="runPossibility()">
 					  	<option value="stronglyBelieve">Strongly believe</option>
 						<option value="believe">Believe</option>
 						<option value="unsure">Unsure</option>
@@ -122,6 +44,11 @@
 						<option value="stronglyDisbelieve">Strongly disbelieve</option>
 					</select>
 				  </div>
+				  <!--ALERT MESSAGE FOR POSSIBILITY -->
+				  
+					<div id="possibilityMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
+						  
+					</div><!--END OF DIFFICULTY ALERT MESSAGE-->
 				</div>
 			  </div><!--CARD-->
 			  
@@ -147,11 +74,6 @@
 				  <!--ALERT MESSAGE FOR DIFFICULTY -->
 				  
 					<div id="difficultyMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
-<!--
-						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span id="difficultyX" aria-hidden="true">&times;</span>
-						  </button>
--->
 						  
 					</div><!--END OF DIFFICULTY ALERT MESSAGE-->
 				  
@@ -200,9 +122,9 @@
 				<div class="card-footer">
 			  		<div class="form-group">
 <!--					  <label for="goal_type" class="font-weight-bold">Type:</label>-->
-					  <select name="goal_type" id="" class="form-control">
+					  <select name="goal_type" id="goal_type" class="form-control" onchange="toggleDateVisibility()">
+					  	<option value="deadline">Deadline</option>
 					  	<option value="ongoing">Ongoing</option>
-						<option value="deadline">Deadline</option>
 					  </select>
 					 </div>
 				</div>
@@ -222,7 +144,7 @@
 					</div>
 				  </div><!--CARD-->
 
-				   <div class="card">
+				   <div class="card" id="dateCard">
 					<div class="card-block">
 					  <h4 class="card-title text-center">Date</h4>
 					  <p class="card-text">Ideally when would you like to have this goal completed? If the goal is ongoing, feel free to skip this question</p>  
