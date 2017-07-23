@@ -1,9 +1,8 @@
-/*
-html,body{
-	height: 100%;
-	
+/*TEXT-------------------------------------*/
+
+h2, h3, h4{
+	text-transform: uppercase;
 }
-*/
 
 #hero{
 	
@@ -40,6 +39,15 @@ span #toggleDifficulty{
 	display: none;
 }
 
+/*CARDS---------------------------*/
+
+.card-block h4{
+	font-size: 16px;
+/*	font-weight: bold;*/
+	text-transform: uppercase;
+}
+
+
 
 /*CONTENT SLIDER HINTBOX*/
 
@@ -47,6 +55,9 @@ span #toggleDifficulty{
 	background-color: #98091a;
 	color: white;
 }
+
+
+
 
 
 

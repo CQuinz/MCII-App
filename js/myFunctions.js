@@ -138,6 +138,14 @@
 			/*SLOW CAROUSEL(hintBox) */
 			$('.carousel').carousel({
 			  interval: 10000
+			
+		
+			})
+
+			/*PAUSE ON HOVER CAROUSEL(hintBox) */
+			$('.carousel').carousel({
+			  pause: "hover"
+		
 			})
 
 

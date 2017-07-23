@@ -32,7 +32,7 @@
 				
 				<div class="card-footer">
 				  <div class="form-group">
-					<textarea type="text" placeholder="Benifit" name="goal_details" class="form-control" rows="2"></textarea>
+					<textarea type="text" placeholder="Benifit" name="benefit" class="form-control" rows="2"></textarea>
 				  </div>
 				  <!--ALERT MESSAGE FOR BENIFIT -->
 				  
@@ -50,7 +50,7 @@
 				
 				<div class="card-footer">
 				  <div class="form-group">
-					<textarea type="text" placeholder="What prevents you" name="goal_details" class="form-control" rows="2"></textarea>				
+					<textarea type="text" placeholder="What prevents you" name="obstacle" class="form-control" rows="2"></textarea>				
 				  </div>
 				  
 				  <!--ALERT MESSAGE FOR OBSTACLE -->
@@ -73,11 +73,11 @@
 				<div class="card-footer">
 			  		<div class="input-group my-3">
 						<span class="input-group-addon font-weight-bold" id="basic-addon2">If:</span>
-						<input type="text" class="form-control" id="goal_name" placeholder="x...." name="goal_name">
+						<input type="text" class="form-control"  placeholder="x...." name="plan_if">
 					</div>
 					<div class="input-group my-3">
 						<span class="input-group-addon font-weight-bold" id="basic-addon2">Then:</span>
-						<input type="text" class="form-control" id="goal_name" placeholder="I will .." name="goal_name">
+						<input type="text" class="form-control"  placeholder="I will .." name="plan_then">
 					</div>
 			  </div>
 			 
@@ -152,7 +152,8 @@
 			
 			<div id="goal_footer" class="text-center my-5">
 				<p>Now let's add the goal and move on to the next step of creating your <a href="">Action Plan!</a></p>
-				<input type="submit" class="btn btn-primary" value="Add Goal" name="add_goal">
+<!--				<input type="submit" class="btn btn-primary" value="Finish" name="finish">-->
+				<input type="submit" class="btn btn-danger" value="Add another tier" name="add_another_tier">
 			</div>
 			
 		<?php 
@@ -163,22 +164,28 @@
 		die("no connection". mysqli_error($db));
 	}
 	
-//			if(isset($_POST['add_goal'])){
-//				
-//				$goal_title = $_POST['goal_name'];
-//				$goal_details = $_POST['goal_details'];
-//				$goal_comp_date = $_POST['goal_comp_date'];
-//				$goal_type = $_POST['goal_type'];
-//				//$goal_status = $_POST['goal_status'];
-//				$goal_catagory = $_POST['goal_catagory'];
+		if(isset($_POST['add_another_tier'])){
 				
-				/*ADD CONDITIONAL TO CHECK IF GOAL TYPE IS SET TO ONGOING OR DEADLINE*/
+				$benefit = $_POST['benefit'];
+				$obstacle = $_POST['obstacle'];
+				$plan_if = $_POST['plan_if'];
+				$plan_then = $_POST['plan_then'];
+				$if_then_plan ="If '{$plan_if}' Then '{$plan_then}'";
 				
-//				$query = "INSERT INTO goals (goal_title, goal_details, goal_finish, goal_type, goal_status, goal_catagory) ";
-//				$query .="VALUES ('{$goal_title}', '{$goal_details}',{$goal_comp_date},'{$goal_type}','Active','{$goal_catagory}')";
-//				
-//				$add_goal_query =mysqli_query($db,$query);
-//		}
+				
+				
+				$query = "INSERT INTO goal_tier (benefit, obstacle, plan) ";
+				$query .="VALUES ('{$benefit}','{$obstacle}', '{$if_then_plan}')";
+				
+				$add_tier_query =mysqli_query($db,$query);
+			
+				/*GET THE GOAL_ID AND PASS IT INTO THE URL */
+				$g_id= $GET['g_id'];
+				
+			
+			
+				header("Location: create_tier.php?g_id=$g_id");
+		}
 			
 		?>
 			

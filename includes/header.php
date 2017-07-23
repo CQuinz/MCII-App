@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!--THIS IS THE HEADER-->
 <?php include "includes/db.php" ?>
 

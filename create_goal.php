@@ -17,7 +17,7 @@
 					<div class="input-group col-md-6 offset-md-3 my-3">
 <!--						<label for="goal_name" class="font-weight-bold">I want to:</label>-->
 						<span class="input-group-addon" id="basic-addon2">I want to:</span>
-						<input type="text" class="form-control" id="goal_name" placeholder="enter goal here" name="goal_name" onblur="checkGoalName()">
+						<input type="text" class="form-control" id="goal_name" placeholder="enter goal here" name="goal_title" onblur="checkGoalName()">
 					</div>
 				</div>
 			
@@ -35,8 +35,8 @@
 				
 				<div class="card-footer">
 				  <div class="form-group">
-<!--					<label for="goal_possibility" class="font-weight-bold">Possibility:</label>-->
-					<select name="goal_type" id="goal_possibility" class="form-control" onchange="runPossibility()">
+
+					<select name="goal_possibility" id="goal_possibility" class="form-control" onchange="runPossibility()">
 					  	<option value="stronglyBelieve">Strongly believe</option>
 						<option value="believe">Believe</option>
 						<option value="unsure">Unsure</option>
@@ -121,7 +121,7 @@
 				</div>
 				<div class="card-footer">
 			  		<div class="form-group">
-<!--					  <label for="goal_type" class="font-weight-bold">Type:</label>-->
+
 					  <select name="goal_type" id="goal_type" class="form-control" onchange="toggleDateVisibility()">
 					  	<option value="deadline">Deadline</option>
 					  	<option value="ongoing">Ongoing</option>
@@ -138,11 +138,12 @@
 
 					<div class="card-footer">
 					  <div class="form-group">
-<!--						<label for="goal_details" class="font-weight-bold">How will you know:</label>-->
+						
 						<textarea type="text" placeholder="Success looks like" name="goal_details" class="form-control" rows="2"></textarea>
 					  </div>
 					</div>
-				  </div><!--CARD-->
+				  </div>
+				   <!--CARD-->
 
 				   <div class="card" id="dateCard">
 					<div class="card-block">
@@ -152,13 +153,13 @@
 
 					<div class="card-footer">
 					  <div class="form-group">
-<!--						<label for="article_content" class="font-weight-bold">Completed by:</label>-->
+
 						<input type="date"  name="goal_comp_date" class="form-control">
 					  </div>
 					</div>
 				  </div><!--CARD-->
 	
-			  
+				
 			</div><!--END OF SECOND CARD DECK------------------------------------------------------------------------->
 			
 			
@@ -175,22 +176,39 @@
 		die("no connection". mysqli_error($db));
 	}
 	
-//			if(isset($_POST['add_goal'])){
-//				
-//				$goal_title = $_POST['goal_name'];
-//				$goal_details = $_POST['goal_details'];
-//				$goal_comp_date = $_POST['goal_comp_date'];
-//				$goal_type = $_POST['goal_type'];
-//				//$goal_status = $_POST['goal_status'];
-//				$goal_catagory = $_POST['goal_catagory'];
+		if(isset($_POST['add_goal'])){
+				
+				$goal_title = $_POST['goal_title'];
+				$goal_possibility = $_POST['goal_possibility'];
+				$goal_difficulty = $_POST['goal_difficulty'];
+				$goal_catagory = $_POST['goal_catagory'];
+				$goal_type = $_POST['goal_type'];
+				$goal_details = $_POST['goal_details'];
+				$goal_comp_date = $_POST['goal_comp_date'];
+				
+				//$goal_status = $_POST['goal_status'];
+				
 				
 				/*ADD CONDITIONAL TO CHECK IF GOAL TYPE IS SET TO ONGOING OR DEADLINE*/
 				
-//				$query = "INSERT INTO goals (goal_title, goal_details, goal_finish, goal_type, goal_status, goal_catagory) ";
-//				$query .="VALUES ('{$goal_title}', '{$goal_details}',{$goal_comp_date},'{$goal_type}','Active','{$goal_catagory}')";
-//				
-//				$add_goal_query =mysqli_query($db,$query);
-//		}
+				$query = "INSERT INTO goals (goal_title, goal_possibility, goal_difficulty, goal_catagory, goal_type, goal_details, goal_comp_date, goal_status) ";
+				$query .="VALUES ('{$goal_title}','{$goal_possibility}', '{$goal_difficulty}', '{$goal_catagory}', '{$goal_type}', '{$goal_details}', '{$goal_comp_date}', 'Active')";
+				
+				$add_goal_query =mysqli_query($db,$query);
+			
+			
+				/*GET THE GOAL_ID */
+				//Code taken and modified from: https://www.w3schools.com/php/php_mysql_insert_lastid.asp
+				if ($add_goal_query) {
+					$last_id = mysqli_insert_id($db);
+					echo "New record created successfully. Last inserted ID is: " . $last_id;
+				} else {
+					echo "Error: " .$query.mysqli_error($db);
+				}
+			
+			
+				header("Location: create_tier.php?g_id=$last_id");
+		}
 			
 		?>
 			
