@@ -15,7 +15,7 @@
 				document.getElementById("possibilityMessage").innerHTML="";
 			}
 			
-
+		}
 		
 		function toggleDifficultyOptions(){
 				
@@ -71,7 +71,12 @@
 				var difficultyValue = document.getElementById("goal_difficulty").value;
 				var possibilityValue = document.getElementById("goal_possibility").value;
 				
-				if(possibilityValue =="stronglyBelieve" && difficultyValue == "tooEasy" 
+				if(possibilityValue =="dontBelieve" 
+						|| possibilityValue =="stronglyDisbelieve"){
+					
+						difficultyMessage =""; 
+				}
+				else if(possibilityValue =="stronglyBelieve" && difficultyValue == "tooEasy" 
 				   || possibilityValue =="believe" && difficultyValue == "tooEasy"
 				   || possibilityValue =="stronglyBelieve" && difficultyValue == "easy" 
 				   || possibilityValue =="believe" && difficultyValue == "easy"){
@@ -84,6 +89,7 @@
 						 || possibilityValue =="believe" && difficultyValue == "veryChallenging"){
 					
 						difficultyMessage ="<p><strong>Brilliant!!</strong> This is the sweet spot!! Believing you can succeed and that it will be<strong><i> Challenging. </i></strong> Studies show this mindset is the best when it comes to goal pursuit.<p>"; 
+					
 				}
 				
 				else{
@@ -110,6 +116,8 @@
 						document.getElementById("difficultyMessage").style.display="inline";
 						document.getElementById("difficultyMessage").innerHTML=difficultyMessage;
 				}
+				
+				
 
 				
 			}/*END OF checkDifficulty()*/
@@ -126,4 +134,36 @@
 					document.getElementById("dateCard").style.display="block";
 				}
 			}
+
+			/*SLOW CAROUSEL(hintBox) */
+			$('.carousel').carousel({
+			  interval: 10000
+			})
+
+
+		/*ATTEMPT AT REFACTORING ALERT MESSAGES*/
+
+		function nameOfFunction(){
+			
+			/*1.get the input value and store it as a var inputValue */
+			/*1.5 get the id from the alertMessageContainer and store it as var alertMessageContainer*/
+			/*2.create a set of test values and store in array testValues */
+			/*3.test inputValue against testValues*/
+			/*3.5 create an array to hold all the messages array alertMessages*/
+			/*4.If inputValue matches a testValues Then display a message*/
+			/*5.Else show nothing*/
+			 
+			var inputValue =document.getElementById("").value;
+			var alertMessageContainer=document.getElementById("");
+			var testValues={};
+			var alertMessages={};
+			
+			for(i=0;i<testValues.length;i++){
+				var testValue = i;
+				if(inputValue == testValue){
+					
+
+				}
+			}
+		}
 	 

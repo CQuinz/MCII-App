@@ -26,7 +26,7 @@
 		  
 			  <div class="card">
 				<div class="card-block text-inverse">
-				  <h4 class="card-title text-center">Benifit</h4>
+				  <h4 class="card-title text-center">Benefit</h4>
 				  <p class="card-text">Why is this important? How will things improve or get better for you? List <strong>One Benefit</strong> to getting this goal</p>
 				</div>
 				
@@ -79,66 +79,75 @@
 						<span class="input-group-addon font-weight-bold" id="basic-addon2">Then:</span>
 						<input type="text" class="form-control" id="goal_name" placeholder="I will .." name="goal_name">
 					</div>
-			  </div><!--CARD-->
+			  </div>
+			 
+			</div><!--CARD-->
+			
 			  
-			  
-			  
-			  
-			  
-			</div><!--END OF FIRST CARD DECK---------------------------------------------------------->
+			</div><!--END OF FIRST CARD DECK------------------------------------------------------------------------->
+			
+			<?php
+			//QUERY TO GET ALL THE TIER_HINTS AND DISPLAY IN THE HINTBOX CONTENT SLIDER
+			$query="SELECT * FROM tier_hints";
+			$select_all_tier_hints = mysqli_query($db,$query);
+			
+			?>
 			
 			
-			<!--SECOND CARD DECK----------------------------------------------------------------------->
-			
-			<div class="card-deck">
-			
-				<div class="card">
+			<!--HINTBOX CONTENT SLIDER ------------------------------------------------------------------------------>
+			<!--Modified bootstrap carousel-->
+			<div id="hintBox" class="col-md-6 offset-md-3 mt-3">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+				  <div class="carousel-inner rounded" role="listbox">
+				  	
+					<div class="carousel-item active">
+						<div class="px-4 text-center">
+						  <h4>Hint 2</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor reprehenderit amet quis qui cupiditate cum eveniet repellat sit laborum ea, a, ipsum maiores obcaecati tenetur doloribus nostrum vero facilis. Rem! <a href="">learn more</a>
+							</p>
+						</div>
+					</div>
 
-				<div class="card-block">
-				  <h4 class="card-title text-center">Type</h4>
-					<p class="card-text">Will this goal have a deadline or will it be ongoing?</p>
+				  
+				  <?php 
+				  //loop through carosel items and display tier_hints
+//				$count_loop = 0;
+				 while($row = mysqli_fetch_assoc($select_all_tier_hints)){
+					$tier_hints_name= $row['tier_hints_name'];
+					$tier_hints_content= $row['tier_hints_content'];
+					$tier_hints_link_article= $row['tier_hints_link_article'];
+					 
+//					$count_loop++;
+//					 echo $count_loop;
+//					
+//					if($count_loop ==1){
+//						$class_active = "active";	
+//					}elseif(key($row)>1){
+//						$class_active = "";
+//					}
+					
+					?> 
+					
+					<div class="carousel-item <?php echo "{$class_active}"; ?>">
+						<div class="px-4 text-center">
+							<h4><?php echo "{$tier_hints_name}"; ?></h4>
+							<p><?php echo "{$tier_hints_content}"; ?><a href="">learn more</a>
+							</p>
+						</div>
+					</div>
+					<?php } ?>
+									
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				  </a>
 				</div>
-				<div class="card-footer">
-			  		<div class="form-group">
-<!--					  <label for="goal_type" class="font-weight-bold">Type:</label>-->
-					  <select name="goal_type" id="goal_type" class="form-control" onchange="toggleDateVisibility()">
-					  	<option value="deadline">Deadline</option>
-					  	<option value="ongoing">Ongoing</option>
-					  </select>
-					 </div>
-				</div>
-			  </div><!--CARD-->
-			
-				<div class="card">
-					<div class="card-block">
-					  <h4 class="card-title text-center">Specific</h4>
-					  <p class="card-text">We're going to need to get a little bit more detailed. In measurable terms - how will you know when you've reached your goal? What would you (or someone else) see, hear or feel?</p>  
-					</div>
-
-					<div class="card-footer">
-					  <div class="form-group">
-<!--						<label for="goal_details" class="font-weight-bold">How will you know:</label>-->
-						<textarea type="text" placeholder="Success looks like" name="goal_details" class="form-control" rows="2"></textarea>
-					  </div>
-					</div>
-				  </div><!--CARD-->
-
-				   <div class="card" id="dateCard">
-					<div class="card-block">
-					  <h4 class="card-title text-center">Date</h4>
-					  <p class="card-text">Ideally when would you like to have this goal completed? If the goal is ongoing, feel free to skip this question</p>  
-					</div>
-
-					<div class="card-footer">
-					  <div class="form-group">
-<!--						<label for="article_content" class="font-weight-bold">Completed by:</label>-->
-						<input type="date"  name="goal_comp_date" class="form-control">
-					  </div>
-					</div>
-				  </div><!--CARD-->
-	
-			  
-			</div><!--END OF SECOND CARD DECK------------------------------------------------------------------------->
+			</div><!--End of hintBox-->
 			
 			
 			<div id="goal_footer" class="text-center my-5">

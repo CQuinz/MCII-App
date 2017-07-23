@@ -41,4 +41,12 @@ span #toggleDifficulty{
 }
 
 
+/*CONTENT SLIDER HINTBOX*/
+
+.carousel-inner{
+	background-color: #98091a;
+	color: white;
+}
+
+
 
