@@ -170,7 +170,7 @@
 				$obstacle = $_POST['obstacle'];
 				$plan_if = $_POST['plan_if'];
 				$plan_then = $_POST['plan_then'];
-				$if_then_plan ="If '{$plan_if}' Then '{$plan_then}'";
+				$if_then_plan ="If " .$plan_if ." Then " .$plan_then;
 				
 				
 				
@@ -180,7 +180,7 @@
 				$add_tier_query =mysqli_query($db,$query);
 			
 				/*GET THE GOAL_ID AND PASS IT INTO THE URL */
-				$g_id= $GET['g_id'];
+				$g_id= $_GET['g_id'];
 				
 			
 			
