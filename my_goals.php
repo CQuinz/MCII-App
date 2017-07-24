@@ -67,14 +67,7 @@
 						</tr>
 					</thead>
 					
-					<!--DELETE GOAL QUERY-->
-					<?php 
-					if(isset($_GET['delete_goal_id'])){
-						$query= "DELETE FROM goals WHERE goal_id = $goal_id";
-						$deleteGoalQuery= mysqli_query($db,$query);
-						header("Location: my_goals.php");
-						}
-					?>
+				
 
 					<tbody>
 						<tr>
@@ -83,8 +76,8 @@
 							<td><?php echo "{$goal_catagory}"; ?></td>
 							<td><?php echo "{$goal_start_date}"; ?></td>
 							<td><?php echo "{$goal_comp_date}"; ?></td>
-							<td><?php echo "<a href='index.php?source=edit_article&edit=$goal_id'>Edit</a>"; ?></td>
-							<td><?php echo "<a href='index.php?delete_goal_id=$goal_id'>Delete</a>"; ?></td>
+							<td><?php echo "<a href='edit_goal.php?edit_g_id=$goal_id'>Edit</a>"; ?></td>
+							<td><?php echo "<a href='my_goals.php?delete_goal_id=$goal_id'>Delete</a>"; ?></td>
 						</tr>
 					</tbody>
 
@@ -124,6 +117,8 @@
 								<td><?php echo "{$benefit}"; ?></td>
 								<td><?php echo "{$obstacle}"; ?></td>	
 								<td><?php echo "{$plan}"; ?></td>
+								<td><?php echo "<a href='index.php?source=edit_article&edit=$goal_id'>Edit</a>"; ?></td>
+								<td><?php echo "<a href='my_goals.php?delete_goal_tier_id=$goal_id'>Delete</a>"; ?></td>
 							</tr>
 						</tbody>
 					</table>
@@ -133,7 +128,23 @@
 			<br>
 		 	<?php } ?><!--CLOSE GOAL WHILE OUTTER LOOP -->
 		 			
-		 		
+		 			<!--DELETE GOAL QUERY-->
+					<?php 
+					if(isset($_GET['delete_goal_id'])){
+						$query= "DELETE FROM goals WHERE goal_id = $goal_id";
+						$deleteGoalQuery= mysqli_query($db,$query);
+						header("Location: my_goals.php");
+						}
+					?>
+					
+					<!--DELETE GOAL_TIER QUERY-->
+					<?php 
+					if(isset($_GET['delete_goal_tier_id'])){
+						$query= "DELETE FROM goal_tier WHERE goal_id = $goal_id";
+						$deleteGoalTierQuery= mysqli_query($db,$query);
+						header("Location: my_goals.php");
+						}
+					?>
 		 		
 		 	
      		

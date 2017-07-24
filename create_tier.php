@@ -152,7 +152,7 @@
 			
 			<div id="goal_footer" class="text-center my-5">
 				<p>Now let's add the goal and move on to the next step of creating your <a href="">Action Plan!</a></p>
-<!--				<input type="submit" class="btn btn-primary" value="Finish" name="finish">-->
+				<input type="submit" class="btn btn-primary" value="Finish" name="finish">
 				<input type="submit" class="btn btn-danger" value="Add another tier" name="add_another_tier">
 			</div>
 			
@@ -164,27 +164,34 @@
 		die("no connection". mysqli_error($db));
 	}
 	
-		if(isset($_POST['add_another_tier'])){
+		if(isset($_POST['add_another_tier']) || isset($_POST['finish'])){
 				
 				$benefit = $_POST['benefit'];
 				$obstacle = $_POST['obstacle'];
 				$plan_if = $_POST['plan_if'];
 				$plan_then = $_POST['plan_then'];
 				$if_then_plan ="If " .$plan_if ." Then " .$plan_then;
+			
+				$goal_id = $_GET['g_id'];
 				
 				
 				
-				$query = "INSERT INTO goal_tier (benefit, obstacle, plan) ";
-				$query .="VALUES ('{$benefit}','{$obstacle}', '{$if_then_plan}')";
+				$query = "INSERT INTO goal_tier (goal_id, benefit, obstacle, plan) ";
+				$query .="VALUES ($goal_id, '{$benefit}','{$obstacle}', '{$if_then_plan}')";
 				
 				$add_tier_query =mysqli_query($db,$query);
 			
 				/*GET THE GOAL_ID AND PASS IT INTO THE URL */
-				$g_id= $_GET['g_id'];
+				//$g_id= $_GET['g_id'];
 				
 			
-			
-				header("Location: create_tier.php?g_id=$g_id");
+				if(isset($_POST['add_another_tier'])){
+					header("Location: create_tier.php?g_id=$goal_id");
+					
+				}else if(isset($_POST['finish'])){
+					header("Location: my_goals.php?g_id=$goal_id");
+				}
+				
 		}
 			
 		?>
