@@ -59,6 +59,18 @@ span #toggleDifficulty{
 }
 
 
+.plan-heading-left{
+	border-right: 1px solid grey;
+	display: inline;
+	padding: 5px;
+	color: red;
+}
+
+.plan-heading-left p {
+	
+	display: inline;
+	
+} 
 
 
 

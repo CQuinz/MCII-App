@@ -17,7 +17,7 @@
 
 		while($row = mysqli_fetch_assoc($show_edit_goal)){
 			
-			$goal_id = $row['goal_id'];
+			//$goal_id = $row['goal_id'];
 			//$goal_id = $row['goal_id'];
 			$goal_title = $row['goal_title'];
 			$goal_user_id = $row['goal_user_id'];
@@ -184,7 +184,7 @@
 			
 			<div id="goal_footer" class="text-center my-5">
 				<p>Now let's add the goal and move on to the next step of creating your <a href="">Action Plan!</a></p>
-				<input type="submit" class="btn btn-primary" value="Add Goal" name="add_goal">
+				<input type="submit" class="btn btn-primary" value="Update Goal" name="update_goal">
 			</div>
 			
 		<?php 
@@ -195,7 +195,7 @@
 		die("no connection". mysqli_error($db));
 	}
 	
-		if(isset($_POST['add_goal'])){
+		if(isset($_POST['update_goal'])){
 				
 				$goal_title = $_POST['goal_title'];
 				$goal_possibility = $_POST['goal_possibility'];
@@ -210,23 +210,19 @@
 				
 				/*ADD CONDITIONAL TO CHECK IF GOAL TYPE IS SET TO ONGOING OR DEADLINE*/
 				
-				$query = "INSERT INTO goals (goal_title, goal_possibility, goal_difficulty, goal_catagory, goal_type, goal_details, goal_comp_date, goal_status) ";
-				$query .="VALUES ('{$goal_title}','{$goal_possibility}', '{$goal_difficulty}', '{$goal_catagory}', '{$goal_type}', '{$goal_details}', '{$goal_comp_date}', 'Active')";
-				
-				$add_goal_query =mysqli_query($db,$query);
+				$query = "UPDATE goals SET ";
+				$query .= "goal_title = '{$goal_title}', ";
+				$query .= "goal_possibility = '{$goal_possibility}', ";
+				$query .= "goal_difficulty = '{$goal_difficulty}', ";
+				$query .= "goal_catagory = '{$goal_catagory}', ";
+				$query .= "goal_details = '{$goal_details}', ";
+				$query .= "goal_comp_date = '{$goal_comp_date}' ";
+				$query .= "WHERE goal_id = {$edit_g_id}";
+
+				$edit_goal = mysqli_query($db,$query);
 			
 			
-				/*GET THE GOAL_ID */
-				//Code taken and modified from: https://www.w3schools.com/php/php_mysql_insert_lastid.asp
-				if ($add_goal_query) {
-					$last_id = mysqli_insert_id($db);
-					echo "New record created successfully. Last inserted ID is: " . $last_id;
-				} else {
-					echo "Error: " .$query.mysqli_error($db);
-				}
-			
-			
-				header("Location: create_tier.php?g_id=$last_id");
+				header("Location: my_goals.php");
 		}
 			
 		?>
