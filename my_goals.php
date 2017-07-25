@@ -119,6 +119,15 @@
 								<td><?php echo "{$plan}"; ?></td>
 								<td><?php echo "<a href='index.php?source=edit_article&edit=$goal_id'>Edit</a>"; ?></td>
 								<td><?php echo "<a href='my_goals.php?delete_goal_tier_id=$goal_id'>Delete</a>"; ?></td>
+								
+								<!--DELETE GOAL_TIER QUERY-->
+					<?php 
+					if(isset($_GET['delete_goal_tier_id'])){
+						$query= "DELETE FROM goal_tier WHERE tier_id = $tier_id";
+						$deleteGoalTierQuery= mysqli_query($db,$query);
+						header("Location: my_goals.php");
+						}
+					?>
 							</tr>
 						</tbody>
 					</table>
@@ -137,14 +146,7 @@
 						}
 					?>
 					
-					<!--DELETE GOAL_TIER QUERY-->
-					<?php 
-					if(isset($_GET['delete_goal_tier_id'])){
-						$query= "DELETE FROM goal_tier WHERE goal_id = $goal_id";
-						$deleteGoalTierQuery= mysqli_query($db,$query);
-						header("Location: my_goals.php");
-						}
-					?>
+					
 		 		
 		 	
      		
