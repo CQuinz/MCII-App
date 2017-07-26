@@ -13,12 +13,19 @@
 				<p class="lead">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. 
 				is this working???????
 				Use it as a starting point to create something more unique. Find out <a href="#">more&raquo;</a></p>
-				<button class="btn btn-primary btn-lg" href="#" role="button"><a> Login &raquo;</a></button>
-				<button class="btn btn-success btn-lg" href="#" role="button"><a>Register &raquo;</a></button>
+				
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#registerModal">Register</button>
+				
 			</div>
 	 	</div>
     
     </section><!--END OF HERO-->
+    
+    <div id="validationMessage">
+		<?php include "includes/login.php"?>
+    	<?php include "includes/register.php"?>			
+	</div>
 
     <div class="container">
       <!-- Example row of columns -->

@@ -6,7 +6,11 @@
 	 
 	 	<!--ADMIN NAV-->
 	 	<div class="card-group">
-	 	
+	 	<?php 
+			if($_SESSION['username']){
+				echo $_SESSION['username'];
+			}
+		?>
 		  <div class="card">
 			<div class="card-block text-center">
 			  <i class="fa fa-bullseye fa-2x card-img-top" aria-hidden="true"></i>
@@ -34,7 +38,7 @@
 			  <i class="fa fa-book fa-2x" aria-hidden="true"></i>
 			  <h4 class="card-title">Users</h4>
 			  <hr>
-			  <a href="" class="card-link">View All Users</a>
+			  <a href="index.php?source=view_all_users" class="card-link">View All Users</a>
 			  <a href="" class="card-link">Create User</a>
 			</div>
 		  </div>
@@ -79,6 +83,10 @@
 					 
 				case "edit_article";
 				include "admin_includes/admin_edit_article.php";
+				break;
+					 
+				case "view_all_users";
+				include "admin_includes/view_all_users.php";
 				break;
 				
 					 

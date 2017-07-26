@@ -27,6 +27,15 @@ h2, h3, h4{
 	color: #ffffff;
 }
 
+/*
+#validationMessage p{
+	text-align: center;
+	font-weight: bold;
+}
+*/
+
+
+
 #admin-header{
 	margin-top: 40px;
 }
@@ -71,7 +80,6 @@ span #toggleDifficulty{
 	display: inline;
 	
 } 
-
 
 
 
