@@ -6,7 +6,7 @@
     
     <div class="container">
 		
-		<h1 class="font-weight-bold text-center">Create Action Steps</h1>
+		<h1 class="font-weight-bold text-center">Edit Action Plan</h1>
 		<p>Let's add your plan</p>
 		
 		<form action="" method="post" name="create_goal">
@@ -21,6 +21,28 @@
 				
 			
 			<!--FIRST CARD DECK----------------------------------------------------->
+			<!-- GRAB TIER_ID FROM THE URL, QUERY THE DB AND DISPLAY THE RESULTS IN THE FORM( STICKY) -->
+			<?php
+			$edit_tier_id= $_GET['edit_tier_id'];
+			$goal_id= $_GET['g_id'];
+			$query= "SELECT * FROM goal_tier WHERE tier_id = $edit_tier_id";
+			$show_edit_tier= mysqli_query($db,$query);
+
+			while($row = mysqli_fetch_assoc($show_edit_tier)){
+
+				$benefit = $row['benefit'];
+				$obstacle = $row['obstacle'];
+				$plan = $row['plan'];
+				
+				$plan_split=(explode("Then",$plan));
+				//$if_split2=(explode("Then",$plan));
+	
+				$if = $plan_split[0];
+				$then=$plan_split[1];				
+				
+
+			?>
+			
 			
 			<div class="card-deck">
 		  
@@ -32,13 +54,11 @@
 				
 				<div class="card-footer">
 				  <div class="form-group">
-					<textarea type="text" placeholder="Benifit" name="benefit" class="form-control" rows="2"></textarea>
+					<textarea type="text" placeholder="Benifit" name="benefit" class="form-control" rows="2">
+					<?php echo "{$benefit}"; ?>
+					</textarea>
 				  </div>
-				  <!--ALERT MESSAGE FOR BENIFIT -->
-				  
-					<div id="benifitMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
-						  
-					</div><!--END OF DIFFICULTY ALERT MESSAGE-->
+				
 				</div>
 			  </div><!--CARD-->
 			  
@@ -50,14 +70,10 @@
 				
 				<div class="card-footer">
 				  <div class="form-group">
-					<textarea type="text" placeholder="What prevents you" name="obstacle" class="form-control" rows="2"></textarea>				
-				  </div>
-				  
-				  <!--ALERT MESSAGE FOR OBSTACLE -->
-				  
-					<div id="obstacleMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
-						  
-					</div><!--END OF DIFFICULTY ALERT MESSAGE-->
+					<textarea type="text" placeholder="What prevents you" name="obstacle" class="form-control" rows="2">
+					<?php echo "{$obstacle}"; ?>
+					</textarea>				
+					</div>
 				  
 				</div>
 			  </div><!--CARD-->
@@ -73,16 +89,16 @@
 				<div class="card-footer">
 			  		<div class="input-group my-3">
 						<span class="input-group-addon font-weight-bold" id="basic-addon2">If:</span>
-						<input type="text" class="form-control"  placeholder="x...." name="plan_if">
+						<input type="text" class="form-control"  value='<?php echo "{$if}"; ?>' name="plan_if">
 					</div>
 					<div class="input-group my-3">
 						<span class="input-group-addon font-weight-bold" id="basic-addon2">Then:</span>
-						<input type="text" class="form-control"  placeholder="I will .." name="plan_then">
+						<input type="text" class="form-control"  value='<?php echo "{$then}"; ?>' name="plan_then">
 					</div>
 			  </div>
 			 
 			</div><!--CARD-->
-			
+			<?php } ?><!--END LOOP DISPLAY EDIT TIER VALUES-->
 			  
 			</div><!--END OF FIRST CARD DECK------------------------------------------------------------------------->
 			
@@ -152,46 +168,35 @@
 			
 			<div id="goal_footer" class="text-center my-5">
 				<p>Now let's add the goal and move on to the next step of creating your <a href="">Action Plan!</a></p>
-				<input type="submit" class="btn btn-primary" value="Finish" name="finish">
-				<input type="submit" class="btn btn-danger" value="Add another tier" name="add_another_tier">
+				<input type="submit" class="btn btn-primary" value="Update Action Plan" name="update_tier">
+				<button class="btn btn-danger" value="Add Another Plan">Add Another Action</button>
 			</div>
 			
-		<?php 
-	if($db){
-		echo "we are connected";
-		
-	}else{
-		die("no connection". mysqli_error($db));
-	}
-	
-		if(isset($_POST['add_another_tier']) || isset($_POST['finish'])){
+		<?php	
+		if(isset($_POST['update_tier'])){
 				
 				$benefit = $_POST['benefit'];
 				$obstacle = $_POST['obstacle'];
-				$plan_if = $_POST['plan_if'];
-				$plan_then = $_POST['plan_then'];
-				$if_then_plan ="If " .$plan_if ." Then " .$plan_then;
+				$if = $_POST['plan_if'];
+				$then = $_POST['plan_then'];
+				$if_then_plan= "If " .$if ." Then " .$then;
+				
+				
+				//$goal_status = $_POST['goal_status'];
+				
+				
+				
+				
+				$query = "UPDATE goal_tier SET ";
+				$query .= "benefit = '{$benefit}', ";
+				$query .= "obstacle = '{$obstacle}', ";
+				$query .= "plan = '{$if_then_plan}' ";
+				$query .= "WHERE tier_id = {$edit_tier_id}";
+
+				$edit_tier = mysqli_query($db,$query);
 			
-				$goal_id = $_GET['g_id'];
-				
-				
-				
-				$query = "INSERT INTO goal_tier (goal_id, benefit, obstacle, plan) ";
-				$query .="VALUES ($goal_id, '{$benefit}','{$obstacle}', '{$if_then_plan}')";
-				
-				$add_tier_query =mysqli_query($db,$query);
 			
-				/*GET THE GOAL_ID AND PASS IT INTO THE URL */
-				//$g_id= $_GET['g_id'];
-				
-			
-				if(isset($_POST['add_another_tier'])){
-					header("Location: create_tier.php?g_id=$goal_id");
-					
-				}else if(isset($_POST['finish'])){
-					header("Location: goal_summary.php?g_id=$goal_id");
-				}
-				
+				header("Location: goal_summary.php?g_id=$goal_id");
 		}
 			
 		?>

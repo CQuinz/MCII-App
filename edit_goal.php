@@ -88,11 +88,6 @@
 					</select>
 				  </div>
 				  
-				  <!--ALERT MESSAGE FOR DIFFICULTY -->
-				  
-					<div id="difficultyMessage" class="alert alert-warning alert-dismissible fade show" role="alert">
-						  
-					</div><!--END OF DIFFICULTY ALERT MESSAGE-->
 				  
 				</div>
 			  </div><!--CARD-->
@@ -222,7 +217,7 @@
 				$edit_goal = mysqli_query($db,$query);
 			
 			
-				header("Location: my_goals.php");
+				header("Location: goal_summary.php?g_id=$edit_g_id");
 		}
 			
 		?>

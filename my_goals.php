@@ -24,6 +24,8 @@
       	<div class="col-md-10 offset-md-1">
       	
       
+      
+      
       	
       	<!--QUERY ALL GOALS FOR THIS USER AND DISPLAY DATA IN A SET OF TABLES (OUTTER TABLE IS GOALS - INNER IS GOAL_TIERS) -->
       	
@@ -47,12 +49,15 @@
 			$goal_status = $row['goal_status'];
 			$goal_catagory = $row['goal_catagory'];
 			
+			
+			
 		?>
       	
 			<!--OUTTER TABLE FOR GOALS-->
 			<div class="card">
-				<div class="w-100 p-2 bg-primary text-white">
-					<h3 class="text-center"><?php echo "{$goal_title}"; ?></h3>
+				<div class="w-100 p-2 bg-secondary">
+					<h5 class="text-center"><strong>Goal: </strong><i><?php echo "{$goal_title}"; ?></i></h5>
+					<p class="text-center"><a href="goal_summary.php?g_id=<?php echo $goal_id?>">Goal Details</a></p>
 				</div>
 				<table class="table table-striped table-bordered table-hover text-center">
 					<thead class="bg-primary text-white">
@@ -80,6 +85,9 @@
 							<td><?php echo "<a href='my_goals.php?delete_goal_id=$goal_id'>Delete</a>"; ?></td>
 						</tr>
 					</tbody>
+					
+
+					
 
 					<!--INNER TABLE FOR GOAL_TIERS-->
 						<?php
@@ -120,35 +128,45 @@
 								<td><?php echo "<a href='index.php?source=edit_article&edit=$goal_id'>Edit</a>"; ?></td>
 								<td><?php echo "<a href='my_goals.php?delete_goal_tier_id=$goal_id'>Delete</a>"; ?></td>
 								
-								<!--DELETE GOAL_TIER QUERY-->
-					<?php 
-					if(isset($_GET['delete_goal_tier_id'])){
-						$query= "DELETE FROM goal_tier WHERE tier_id = $tier_id";
-						$deleteGoalTierQuery= mysqli_query($db,$query);
-						header("Location: my_goals.php");
-						}
-					?>
+								
 							</tr>
 						</tbody>
 					</table>
 					<?php } ?><!--CLOSE GOAL_TIER WHILE INNER LOOP -->
+					
 				</table>
+				<button class="btn btn-secondary"><a href="create_tier.php?g_id=<?php echo $goal_id; ?>">Add Action Plan</a></button>
 			</div>
-			<br>
+			<br><br>
+			
+			
+			
+			
 		 	<?php } ?><!--CLOSE GOAL WHILE OUTTER LOOP -->
+		 	
+		 	<!--DELETE GOAL_TIER QUERY-->
+			<?php 
+			if(isset($_GET['delete_goal_tier_id'])){
+				$query= "DELETE FROM goal_tier WHERE tier_id = $tier_id";
+				$deleteGoalTierQuery= mysqli_query($db,$query);
+				header("Location: my_goals.php");
+				}
+			?>
+		 	
+		 	<!--DELETE GOAL QUERY-->
+			<?php 
+			if(isset($_GET['delete_goal_id'])){
+				$query= "DELETE FROM goals WHERE goal_id = $goal_id";
+				$deleteGoalQuery= mysqli_query($db,$query);
+				header("Location: my_goals.php");
+				}
+			?>
+		 		
 		 			
-		 			<!--DELETE GOAL QUERY-->
-					<?php 
-					if(isset($_GET['delete_goal_id'])){
-						$query= "DELETE FROM goals WHERE goal_id = $goal_id";
-						$deleteGoalQuery= mysqli_query($db,$query);
-						header("Location: my_goals.php");
-						}
-					?>
 					
 					
 		 		
-		 	
+		 	<button class="btn btn-success"><a class="text-white" href="create_goal.php">Create new goal</a></button>
      		
      		<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
@@ -205,7 +223,7 @@
 				  </div>
 				</div>
 			  </div>
-			</div>
+			</div><!--end of modal-->
       		
       	</div>
       	
