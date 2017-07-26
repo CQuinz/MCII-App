@@ -11,6 +11,7 @@
 				echo $_SESSION['username'];
 			}
 		?>
+	  
 		  <div class="card">
 			<div class="card-block text-center">
 			  <i class="fa fa-bullseye fa-2x card-img-top" aria-hidden="true"></i>
@@ -86,6 +87,10 @@
 				break;
 					 
 				case "view_all_users";
+				include "admin_includes/view_all_users.php";
+				break;
+					 
+				case "edit_user";
 				include "admin_includes/view_all_users.php";
 				break;
 				

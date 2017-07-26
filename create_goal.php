@@ -1,5 +1,7 @@
 <!--HEADER INCLUDE-->
    <?php include "includes/header.php"?>
+   
+   <?php $goal_user_id = $_SESSION['user_id']; ?>
 
   
 		
@@ -191,8 +193,8 @@
 				
 				/*ADD CONDITIONAL TO CHECK IF GOAL TYPE IS SET TO ONGOING OR DEADLINE*/
 				
-				$query = "INSERT INTO goals (goal_title, goal_possibility, goal_difficulty, goal_catagory, goal_type, goal_details, goal_comp_date, goal_status) ";
-				$query .="VALUES ('{$goal_title}','{$goal_possibility}', '{$goal_difficulty}', '{$goal_catagory}', '{$goal_type}', '{$goal_details}', '{$goal_comp_date}', 'Active')";
+				$query = "INSERT INTO goals (goal_user_id, goal_title, goal_possibility, goal_difficulty, goal_catagory, goal_type, goal_details, goal_comp_date, goal_status) ";
+				$query .="VALUES ({$goal_user_id}, '{$goal_title}','{$goal_possibility}', '{$goal_difficulty}', '{$goal_catagory}', '{$goal_type}', '{$goal_details}', '{$goal_comp_date}', 'Active')";
 				
 				$add_goal_query =mysqli_query($db,$query);
 			

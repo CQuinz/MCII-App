@@ -3,6 +3,14 @@
 <?php include "../includes/db.php"; ?>
 <?php include "admin_nav.php"; ?>
 <?php require "functions.php"; ?>
+<!--CHECK IF USER HAS A ADMIN ROLE, IF NOT KICK THEM BACK TO THE HOME PAGE-->
+
+<?php 
+		if($_SESSION['user_role'] == "user"){
+			header("Location: ../my_goals.php");
+			//echo $_SESSION['user_role'];
+		}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,3 +32,5 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
+
+

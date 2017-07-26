@@ -31,15 +31,18 @@
       	
       	<?php
 		//CREATE QUERY SHOW ALL GOALS
-		$query = "SELECT * FROM goals";
+		$goal_user_id = $_SESSION['user_id'];
+		
+		$query = "SELECT * FROM goals WHERE goal_user_id = {$goal_user_id}";
 
 		//CONNECT QUERY TO DB
-		$show_all_goals= mysqli_query($db,$query);
+		$show_user_goals= mysqli_query($db,$query);
 
 		//Loop through and display results
-		while($row =mysqli_fetch_assoc($show_all_goals)){
+		while($row =mysqli_fetch_assoc($show_user_goals)){
 
 			//Creating variables for the array
+			
 			$goal_id = $row['goal_id'];
 			//$goal_id = $row['goal_id'];
 			$goal_title = $row['goal_title'];

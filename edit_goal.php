@@ -1,6 +1,6 @@
 <!--HEADER INCLUDE-->
    <?php include "includes/header.php"?>
-
+	<?php $goal_user_id = $_SESSION['user_id']; ?>
   
 		
     
@@ -206,6 +206,7 @@
 				/*ADD CONDITIONAL TO CHECK IF GOAL TYPE IS SET TO ONGOING OR DEADLINE*/
 				
 				$query = "UPDATE goals SET ";
+				$query .= "goal_user_id = '{$goal_user_id}', ";
 				$query .= "goal_title = '{$goal_title}', ";
 				$query .= "goal_possibility = '{$goal_possibility}', ";
 				$query .= "goal_difficulty = '{$goal_difficulty}', ";
