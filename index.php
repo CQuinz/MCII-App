@@ -1,5 +1,11 @@
 	<!--HEADER INCLUDE-->
-   <?php include "includes/header.php"?>
+  <?php 
+			if($_SESSION['user_role']=="admin"){
+				include "admin/admin_includes/admin_header.php";
+			}else{
+				 include "includes/header.php";
+			}
+ ?>
    
     
 

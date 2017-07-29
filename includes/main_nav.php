@@ -14,20 +14,26 @@
 		  	  <?php 
 				if(isset($_SESSION)){
 					$username= $_SESSION['username'];
-				?>	
-					<li class="nav-item dropdown ">
+				?>
+				<?php 
+					if($username !=""){
+						?>	
+			<li class="nav-item dropdown ">
 				<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"><?php echo $username;?></a>
+				
+					
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 				  <a class="dropdown-item" href="my_goals.php">View all goals</a>
 				  <a class="dropdown-item" href="create_goal.php">Create new goal</a>
-				  <a class="dropdown-item" href="create_goal.php">Logout</a>
+				  <a class="dropdown-item" href="includes/logout.php">Logout</a>
 				  
 				</div>
+					
+				
 			  </li>
-					
-					
-					
-				<?php } ?>
+				<?php }?>		
+				<?php }?>
+				
 			  <li class="nav-item active">
 				<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 			  </li>
@@ -35,6 +41,7 @@
 				<a class="nav-link" href="articles.php">Articles</a>
 			  </li>
 
+<!--
 			  <li class="nav-item dropdown ">
 				<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">Goals</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -42,6 +49,7 @@
 					<a class="dropdown-item" href="create_goal.php">Create new goal</a>
 				</div>
 			  </li>
+-->
 			  
 			  
 				

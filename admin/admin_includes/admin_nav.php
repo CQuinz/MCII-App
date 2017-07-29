@@ -9,6 +9,24 @@
 		  <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
 
 			<ul class="navbar-nav ">
+			 <?php 
+				if(isset($_SESSION)){
+					$username= $_SESSION['username'];
+				?>	
+			<li class="nav-item dropdown ">
+				<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"><?php echo $username;?></a>
+				<div class="dropdown-menu" aria-labelledby="dropdown01">
+				  <a class="dropdown-item" href="../my_goals.php">View all goals</a>
+				  <a class="dropdown-item" href="../create_goal.php">Create new goal</a>
+				  <a class="dropdown-item" href="../includes/logout.php">Logout</a>
+				  
+				</div>
+			  </li>
+					
+					
+					
+				<?php } ?>
+			
 		  
 		  	<li class="nav-item dropdown active">
 				<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">Admin</a>

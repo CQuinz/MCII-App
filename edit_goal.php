@@ -7,7 +7,7 @@
     <div class="container">
 		
 		<h1 class="font-weight-bold text-center">Edit My Goal</h1>
-		<p>Let's create your goal</p>
+		
 		
 		<!-- GRAB GOAL_ID FROM THE URL, QUERY THE DB AND DISPLAY THE RESULTS IN THE FORM( STICKY) -->
 		<?php
@@ -24,6 +24,9 @@
 			$goal_comp_date = $row['goal_comp_date'];
 			$goal_catagory = $row['goal_catagory'];
 			$goal_details = $row['goal_details'];
+			$goal_possibility = $row['goal_possibility'];
+			$goal_difficulty = $row['goal_difficulty'];
+			$goal_type = $row['goal_type'];
 		?>
 		
 		<form action="" method="post" name="create_goal">
@@ -54,11 +57,24 @@
 				  <div class="form-group">
 
 					<select name="goal_possibility" id="goal_possibility" class="form-control" onchange="runPossibility()">
-					  	<option value="stronglyBelieve">Strongly believe</option>
-						<option value="believe">Believe</option>
-						<option value="unsure">Unsure</option>
-						<option value="dontBelieve">Don't believe</option>
-						<option value="stronglyDisbelieve">Strongly disbelieve</option>
+					
+						<?php
+					//CREATE AN ARRAY TO HOLD THE VALUES AND TEXT ASSOCIATED WITH THEM
+					$possibility_values =array('stronglyBelieve'=>'Strongly believe', 'believe'=>'Believe', 'unsure'=>'Unsure', 'dontBelieve'=>'Don\'t believe', 'stronglyDisbelieve'=>'Strongly disbelieve');
+
+						//LOOP THROUGH ARRAY AND DISPLAY THE VALUE AND TEXT
+						foreach($possibility_values as $key => $value){
+							//CREATE A VARIABLE TO SET THE OPTION VALUE TO 'SELECTED' OR NOT
+							//CHECK IF $KEY MATCHES $hint_status. IF SO CHANGE $valueSelected =='SELECTED'
+							if($key != $goal_possibility){
+								$valueSelected="";
+							}else if($key == $goal_possibility){
+								$valueSelected=" selected";
+							}
+						?>
+						<option value="<?php echo $key?>" <?php echo $valueSelected; ?>><?php echo $value ?></option>
+				<?php } ?>
+					
 					</select>
 				  </div>
 				  <!--ALERT MESSAGE FOR POSSIBILITY -->
@@ -77,13 +93,27 @@
 				
 				<div class="card-footer">
 				  <div class="form-group">
-<!--					<label for="goal_difficulty" class="font-weight-bold">Difficulty:</label>-->
+
 					<select name="goal_difficulty" id="goal_difficulty" class="form-control" onchange="checkDifficulty()">
-					  	<option value="veryChallenging">Very challenging</option>
-						<option value="challenging">Challenging</option>
-						<option value="moderate">Moderate</option>
-						<option value="easy" id="easy">Easy</option>
-						<option value="tooEasy" id="tooEasy">Too easy</option>
+				  	
+				  		<?php
+					//CREATE AN ARRAY TO HOLD THE VALUES AND TEXT ASSOCIATED WITH THEM
+					$difficulty_values =array('veryChallenging'=>'Very challenging', 'challenging'=>'Challenging', 'moderate'=>'Moderate', 'easy'=>'Easy', 'tooEasy'=>'Too easy');
+
+						//LOOP THROUGH ARRAY AND DISPLAY THE VALUE AND TEXT
+						foreach($difficulty_values as $key => $value){
+							//CREATE A VARIABLE TO SET THE OPTION VALUE TO 'SELECTED' OR NOT
+							//CHECK IF $KEY MATCHES $hint_status. IF SO CHANGE $valueSelected =='SELECTED'
+							if($key != $goal_difficulty){
+								$valueSelected="";
+							}else if($key == $goal_difficulty){
+								$valueSelected=" selected";
+							}
+						?>
+						<option value="<?php echo $key?>" <?php echo $valueSelected; ?> id="<?php echo $key?>"><?php echo $value ?></option>
+				<?php } ?>
+				  	
+
 						
 					</select>
 				  </div>
@@ -103,13 +133,24 @@
 			  		<div class="form-group">
 <!--					  <label for="goal_catagory" class="font-weight-bold">Catagory:</label>-->
 					  <select name="goal_catagory" id="" class="form-control">
-					  	<option value="unspecified">Unspecified</option>
-						<option value="health">Health</option>
-						<option value="relationship">Relationship</option>
-						<option value="finiancial">Finiancial</option>
-						<option value="educational">Educational</option>
-						<option value="misc">Miscellenious</option>
-					  </select>
+					  	
+				<?php
+					//CREATE AN ARRAY TO HOLD THE VALUES AND TEXT ASSOCIATED WITH THEM
+					$catagory_values =array('unspecified'=>'Unspecified', 'health'=>'Health', 'moderate'=>'Moderate', 'relationship'=>'Relationship', 'finiancial'=>'Finiancial', 'educational'=>'Educational', 'misc'=>'Miscellenious' );
+
+						//LOOP THROUGH ARRAY AND DISPLAY THE VALUE AND TEXT
+						foreach($catagory_values as $key => $value){
+							//CREATE A VARIABLE TO SET THE OPTION VALUE TO 'SELECTED' OR NOT
+							//CHECK IF $KEY MATCHES $hint_status. IF SO CHANGE $valueSelected =='SELECTED'
+							if($key != $goal_catagory){
+								$valueSelected="";
+							}else if($key == $goal_catagory){
+								$valueSelected=" selected";
+							}
+						?>
+					  		<option value="<?php echo $key?>" <?php echo $valueSelected; ?> id="<?php echo $key?>"><?php echo $value ?></option>
+				<?php } ?>
+			  		</select>
 					 </div>
 				</div>
 			  </div><!--CARD-->
@@ -134,9 +175,30 @@
 				<div class="card-footer">
 			  		<div class="form-group">
 
-					  <select name="goal_type" id="goal_type" class="form-control" onchange="toggleDateVisibility()">
+					  <select name="goal_type" id="goal_type" class="form-control" onload="toggleDateVisibility()">
+					  	  	
+				<?php
+					//CREATE AN ARRAY TO HOLD THE VALUES AND TEXT ASSOCIATED WITH THEM
+					$deadline_values =array('deadline'=>'Deadline', 'ongoing'=>'Ongoing');
+
+						//LOOP THROUGH ARRAY AND DISPLAY THE VALUE AND TEXT
+						foreach($deadline_values as $key => $value){
+							//CREATE A VARIABLE TO SET THE OPTION VALUE TO 'SELECTED' OR NOT
+							//CHECK IF $KEY MATCHES $hint_status. IF SO CHANGE $valueSelected =='SELECTED'
+							if($key != $goal_type){
+								$valueSelected="";
+							}else if($key == $goal_type){
+								$valueSelected=" selected";
+							}
+						?>
+					  		<option value="<?php echo $key?>" <?php echo $valueSelected; ?> id="<?php echo $key?>"><?php echo $value ?></option>
+				<?php } ?>
+					  
+<!--
 					  	<option value="deadline">Deadline</option>
 					  	<option value="ongoing">Ongoing</option>
+-->
+					  	
 					  </select>
 					 </div>
 				</div>
@@ -167,8 +229,8 @@
 
 					<div class="card-footer">
 					  <div class="form-group">
-
-						<input type="date"  name="goal_comp_date" class="form-control">
+		
+						<input type="date" value="<?php echo $goal_comp_date ?>" name="goal_comp_date" class="form-control">
 					  </div>
 					</div>
 				  </div><!--CARD-->
