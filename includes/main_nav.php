@@ -23,7 +23,7 @@
 				
 					
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
-				  <a class="dropdown-item" href="my_goals.php">View all goals</a>
+				  <a class="dropdown-item" href="my_goals.php">View My goals</a>
 				  <a class="dropdown-item" href="create_goal.php">Create new goal</a>
 				  <a class="dropdown-item" href="includes/logout.php">Logout</a>
 				  

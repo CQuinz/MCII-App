@@ -1,26 +1,24 @@
 <?php include "admin_includes/admin_header.php"; ?>
 <section id="admin_area" class="">
 	 
-	 	<h1 id="admin-header" class="text-center display-4 text-uppercase my-7">Admin Page</h1>
+	 	<h1 id="admin-header" class="text-center display-4 text-uppercase pt-3">Admin Page</h1>
 		
 	 
 	 	<!--ADMIN NAV-->
 	 	<div class="card-group">
-	 	<?php 
-			if($_SESSION['username']){
-				echo $_SESSION['username'];
-			}
-		?>
+	 	
 	  
+<!--
 		  <div class="card">
 			<div class="card-block text-center">
 			  <i class="fa fa-bullseye fa-2x card-img-top" aria-hidden="true"></i>
 			  <h4 class="card-title ">Goals</h4>
 			  <hr>
-			  <a href="" class="card-link">View All Goals</a>
+			  <a href="" class="card-link">View My Goals</a>
 			  <a href="index.php?source=create_article" class="card-link">Create Goal</a>
 			</div>
 		  </div>
+-->
 		  
 		  <div class="card">
 			

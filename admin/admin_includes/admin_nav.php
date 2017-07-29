@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
-		  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-
+	<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+		<div class="container">
 		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
@@ -16,7 +16,7 @@
 			<li class="nav-item dropdown ">
 				<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"><?php echo $username;?></a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
-				  <a class="dropdown-item" href="../my_goals.php">View all goals</a>
+				  <a class="dropdown-item" href="../my_goals.php">View My goals</a>
 				  <a class="dropdown-item" href="../create_goal.php">Create new goal</a>
 				  <a class="dropdown-item" href="../includes/logout.php">Logout</a>
 				  
@@ -33,8 +33,11 @@
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 				  <a class="dropdown-item" href="index.php?source=view_articles">View Articles</a>
 				  <a class="dropdown-item" href="index.php?source=create_article">Create Article</a>
-				  <a class="dropdown-item" href="#">View Users</a>
-				  <a class="dropdown-item" href="#">Log out</a>
+				  <a class="dropdown-item" href="index.php?source=view_all_users">View Users</a>
+				  <a class="dropdown-item" href="index.php?source=create_user">Create User</a>
+				  <a class="dropdown-item" href="index.php?source=view_all_hints">View Hints</a>
+				  <a class="dropdown-item" href="index.php?source=create_hint">Create Hint</a>
+<!--				  <a class="dropdown-item" href="#">Log out</a>-->
 				</div>
 			  </li>
 			  	
@@ -55,5 +58,5 @@
 			</ul>
 	
 		  </div>
-
+		</div>
     </nav>
