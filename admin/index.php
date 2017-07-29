@@ -106,6 +106,10 @@
 				include "admin_includes/create_hint.php";
 				break;
 					 
+				case "edit_hint";
+				include "admin_includes/edit_hint.php";
+				break;
+					 
 			 }
 			 
 			 ?>

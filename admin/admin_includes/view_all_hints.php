@@ -25,10 +25,18 @@
 			
 					//Creating variables for the array
 					$tier_hints_id = $row['tier_hints_id'];
+					$hint_article_id = $row['hint_article_id'];
 					$tier_hints_name = $row['tier_hints_name'];
 					$tier_hints_content = substr($row['tier_hints_content'],0, 20);
 					$tier_hints_status = $row['hint_status'];
-					$tier_hints_link_article = $row['tier_hints_link_article'];
+					
+					//DISPLAY THE ARTICLE LINK QUERY
+					$query="SELECT article_link FROM articles WHERE article_id = {$hint_article_id}";
+					//$tier_hints_link_article = $row['tier_hints_link_article'];
+					$display_article_link =mysqli_query($db,$query);
+					while($link= mysqli_fetch_assoc($display_article_link)){
+						$article_link= $link['article_link'];
+					}
 				
 				?>
 				
@@ -39,8 +47,8 @@
 						<td><?php echo "{$tier_hints_name}"; ?></td>
 						<td><?php echo "{$tier_hints_content}"; ?></td>
 						<td><?php echo "{$tier_hints_status}"; ?></td>
-						<td><?php echo "{$tier_hints_link_article}"; ?></td>
-						<td><?php echo "<a href='index.php?source=edit_tier_hint&edit={$tier_hints_id}'>Edit</a>"; ?></td>
+						<td><?php echo "{$article_link}"; ?></td>
+						<td><?php echo "<a href='index.php?source=edit_hint&edit_hint_id={$tier_hints_id}'>Edit</a>"; ?></td>
 						<td><?php echo "<a href='index.php?source=view_all_hints&delete_tier={$tier_hints_id}'>Delete</a>"; ?></td>
 		 			</tr>
 		 			<?php } //Loop through the results ?>
