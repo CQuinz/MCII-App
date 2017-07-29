@@ -1,7 +1,7 @@
 <?php include "admin_includes/admin_header.php"; ?>
 <section id="admin_area" class="">
 	 
-	 	<h1 id="admin-header" class="text-center display-4 text-uppercase">Admin Page</h1>
+	 	<h1 id="admin-header" class="text-center display-4 text-uppercase my-7">Admin Page</h1>
 		
 	 
 	 	<!--ADMIN NAV-->
@@ -40,7 +40,7 @@
 			  <h4 class="card-title">Users</h4>
 			  <hr>
 			  <a href="index.php?source=view_all_users" class="card-link">View All Users</a>
-			  <a href="" class="card-link">Create User</a>
+			  <a href="index.php?source=create_user" class="card-link">Create User</a>
 			</div>
 		  </div>
 		  
@@ -49,8 +49,8 @@
 			  <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
 			  <h4 class="card-title">Hints</h4>
 			  <hr>
-			  <a href="" class="card-link">View All Hints</a>
-			  <a href="" class="card-link">Create Hint</a>
+			  <a href="index.php?source=view_all_hints" class="card-link">View All Hints</a>
+			  <a href="index.php?source=create_hint" class="card-link">Create Hint</a>
 			 </div>
 		  </div>
 		  
@@ -59,7 +59,7 @@
 		
 	
 		
-		 <div id="admin_content" class="container-fluid">
+		 <div id="admin_content" class="container-fluid mt-4">
 		
 		 	
 		 <!--ADMIN INCLUDES-->
@@ -91,9 +91,20 @@
 				break;
 					 
 				case "edit_user";
-				include "admin_includes/view_all_users.php";
+				include "admin_includes/admin_edit_user.php";
+				break;
+					 
+				case "create_user";
+				include "admin_includes/admin_create_user.php";
 				break;
 				
+				case "view_all_hints";
+				include "admin_includes/view_all_hints.php";
+				break;
+					 
+				case "create_hint";
+				include "admin_includes/create_hint.php";
+				break;
 					 
 			 }
 			 

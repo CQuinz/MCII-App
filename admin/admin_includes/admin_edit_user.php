@@ -1,64 +1,50 @@
 <?php
-//QUERY FOR DISPLAYING THE EDIT ARTICLE DETAILS IN THE (STICKY)FORM
-if(isset($_GET['edit'])){
-	$edit_article_key= $_GET['edit'];
+//QUERY FOR DISPLAYING THE EDIT USER DETAILS IN THE (STICKY)FORM
+if(isset($_GET['edit_id'])){
+	$edit_user_key= $_GET['edit_id'];
 	
-	$query = "SELECT * FROM articles WHERE article_id = $edit_article_key";
+	$query = "SELECT * FROM users WHERE user_id = $edit_user_key";
 				
 	//CONNECT QUERY TO DB
-	$show_edit_article= mysqli_query($db,$query);
+	$show_edit_user= mysqli_query($db,$query);
 
 	//Loop through and display results
-	while($row =mysqli_fetch_assoc($show_edit_article)){
+	while($row =mysqli_fetch_assoc($show_edit_user)){
 
 		//Creating variables for the array
-		$article_id = $row['article_id'];
-		$article_title = $row['article_title'];
-		$article_author = $row['article_author'];
-		$article_date = $row['article_date'];
-		$article_body = $row['article_body'];
-		$article_tags = $row['article_tags'];
-		$article_status = $row['article_status'];
-}
-
+		$user_id = $row['user_id'];
+		$username = $row['username'];
+		$userpass = $row['userpass'];
+		$user_role = $row['user_role'];
+		
 ?>
 
-<h3 class="text-center">Edit User</h3>
+<h3 class="text-center my-4">Edit User</h3>
 <div class="row justify-content-md-center">
-	<div class="col-md-8 text-center">
+	<div class="col-md-4 text-center">
 	
 		<form action="" method="post" class="">
 		
-			<div class="form-inline">
+			<div class="form-group">
 			
-				<label for="article_title" class="mr-sm-2">Username</label>
-				<input type="text" placeholder="Enter your article title here" name="article_title" class="form-control" value='<?php echo "{$article_title}"; ?>'>
+				<label for="userpass" class="mr-sm-2 font-weight-bold">Username:</label>
+				<input type="text" placeholder="Enter username here" name="username" class="form-control" value='<?php echo "{$username}"; ?>'>
 				
-				<label for="article_author" class="mr-sm-2">Password</label>
-				<input type="text" placeholder="Enter the author here" name="article_author" class="form-control" value='<?php echo "{$article_author}"; ?>'>
+				<label for="username" class="mr-sm-2 font-weight-bold">Password:</label>
+				<input type="text" placeholder="Enter password" name="userpass" class="form-control" value='<?php echo "{$userpass}"; ?>'>
 				
-				<label for="article_status" class="mr-sm-2">Role</label>
-				<select name="article_status" id="">
-					<option value='<?php echo "{$article_status}"; ?>' selected><?php echo "{$article_status}"; ?></option>
-					<option value="draft">Draft</option>
-					<option value="published">Publish</option>
+				<label for="user_role" class="mr-sm-2 font-weight-bold">Role:</label>
+				<select name="user_role" id="" class="form-control">
+					<option value='<?php echo "{$user_role}"; ?>' selected><?php echo "{$user_role}"; ?></option>
+					
 					<option value="unpublished">Unpublish</option>
 					
 				</select>
 			</div>
+			<?php }?><!--end of while loop-->
 			
-			<div class="form-group">
-				<label for="article_tags" class="">Tags</label>
-				<input type="text" placeholder="Enter the article tags" name="article_tags" class="form-control" value='<?php echo "{$article_tags}"; ?>'>
-			</div>
-		
-			
-			<div class="form-group">
-				<label for="article_content">Content</label>
-				<textarea type="text" placeholder="Enter content here" name="article_body" class="form-control" rows="6"><?php echo "{$article_body}"; ?></textarea>
-			</div>
 <?php } ?>
-			<input type="submit" class="btn btn-success" value="Edit Article" name="edit_article">
+			<input type="submit" class="btn btn-success" value="Edit User" name="edit_user_submit">
 		</form>
 		
 		<?php
@@ -69,27 +55,23 @@ if(isset($_GET['edit'])){
 		}
 		
 		//QUERY FOR UPDATING AN ARTICLE
-		if(isset($_POST['edit_article'])){
+		if(isset($_POST['edit_user_submit'])){
 			//$article_date = date();
-			$article_author = $_POST['article_author'];
-			$article_title = $_POST['article_title'];
-			$article_status = $_POST['article_status'];
-			$article_tags = $_POST['article_tags'];
-			$article_body = $_POST['article_body'];
-		
-		
-
-			$query = "UPDATE articles SET ";
-			$query .= "article_author = '{$article_author}', ";
-			$query .= "article_title = '{$article_title}', ";
-			$query .= "article_status = '{$article_status}', ";
-			$query .= "article_tags = '{$article_tags}', ";
-			$query .= "article_body = '{$article_body}' ";
-			$query .= "WHERE article_id = {$article_id}";
-
-			$edit_article = mysqli_query($db,$query);
+			$username = $_POST['username'];
+			$userpass = $_POST['userpass'];
+			$user_role = $_POST['user_role'];
 			
-			header("location: index.php?source=view_articles");
+		
+		
+
+			$query = "UPDATE users SET ";
+			$query .= "username = '{$username}', ";
+			$query .= "userpass = '{$userpass}', ";
+			$query .= "user_role = '{$user_role}' ";
+	
+			$edit_user = mysqli_query($db,$query);
+			
+			header("location: index.php?source=view_all_users");
 		
 		}
 	?>
