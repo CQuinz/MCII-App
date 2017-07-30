@@ -10,6 +10,8 @@
 		  <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
 
 			<ul class="navbar-nav ">
+	  	  
+	  	  	
 		  	  
 		  	  <?php 
 				if(isset($_SESSION)){
@@ -18,21 +20,30 @@
 				<?php 
 					if($username !=""){
 						?>	
-			<li class="nav-item dropdown ">
-				<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"><?php echo $username;?></a>
-				
-					
-				<div class="dropdown-menu" aria-labelledby="dropdown01">
-				  <a class="dropdown-item" href="my_goals.php">View My goals</a>
-				  <a class="dropdown-item" href="create_goal.php">Create new goal</a>
-				  <a class="dropdown-item" href="includes/logout.php">Logout</a>
-				  
-				</div>
-					
-				
-			  </li>
+				<li class="nav-item dropdown ">
+					<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"><?php echo $username;?></a>
+
+
+					<div class="dropdown-menu" aria-labelledby="dropdown01">
+					  <a class="dropdown-item" href="my_goals.php">View My goals</a>
+					  <a class="dropdown-item" href="create_goal.php">Create new goal</a>
+					  <a class="dropdown-item" href="includes/logout.php">Logout</a>
+
+					</div>
+
+
+				  </li>
 				<?php }?>		
 				<?php }?>
+				
+				
+				<?php
+			if($_SESSION['user_role']== 'admin'){
+				?>
+				<li class="nav-item ">
+				<a class="nav-link" href="admin/index.php">ADMIN AREA</a>
+			  </li>
+			<?php } ?>
 				
 			  <li class="nav-item active">
 				<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
