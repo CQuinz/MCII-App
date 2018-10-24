@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php session_start();?>
 <!--THIS IS THE HEADER-->
 <?php include "includes/db.php" ?>
 
@@ -26,4 +28,11 @@
   </head>
 
   <body>
+  <?php
+//	if(isset($_SESSION) && $_SESSION['user_role'] == "admin"){
+//	include "admin/admin_includes/admin_nav.php";	
+//	}else{
+//		include "includes/main_nav.php";
+//	}
+	?>
   <?php include "includes/main_nav.php" ?>

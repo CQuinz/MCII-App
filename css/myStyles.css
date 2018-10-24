@@ -1,25 +1,87 @@
-/*
-html,body{
-	height: 100%;
-	
+/*TEXT-------------------------------------*/
+
+
+
+h2, h3, h4{
+	text-transform: uppercase;
 }
-*/
+
+
 
 #hero{
 	
-	background-image: url("../images/color-road.jpg");
-	background-size: cover;
-	height: 500px;
+/*	background-image: url("../images/color-road.jpg");*/
+/*	background-size: cover;*/
+	background-color: #d80818;
+	height: 100%;
 	
 }
 
-/*
 .hero-text{
+/*
 	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
     align-items: center;
 	max-width: 75%;
 	margin: 0 auto;
+*/
+	color: #ffffff;
+}
+
+/*
+#validationMessage p{
+	text-align: center;
+	font-weight: bold;
 }
 */
+
+
+
+#admin-header{
+	margin-top: 40px;
+}
+
+/*FORMS----------------------------*/
+
+#difficultyMessage{
+	display: none;
+}
+
+span #toggleDifficulty{
+	display: none;
+}
+
+/*CARDS---------------------------*/
+
+.card-block h4{
+	font-size: 16px;
+/*	font-weight: bold;*/
+	text-transform: uppercase;
+}
+
+
+
+/*CONTENT SLIDER HINTBOX*/
+
+.carousel-inner{
+	background-color: #98091a;
+	color: white;
+}
+
+
+.plan-heading-left{
+	border-right: 1px solid grey;
+	display: inline;
+	padding: 5px;
+	color: red;
+}
+
+.plan-heading-left p {
+	
+	display: inline;
+	
+} 
+
+
+
